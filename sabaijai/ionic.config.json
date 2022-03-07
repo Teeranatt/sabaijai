@@ -1,0 +1,7 @@
+{
+  "name": "sabaijai",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
