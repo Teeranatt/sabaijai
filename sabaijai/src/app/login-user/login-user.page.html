@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>เข้าสู่ระบบ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+    <ion-label>Username</ion-label>
+    <ion-input required type="text" placeholder="กรอกชื่อของคุณ..."  [(ngModel)]="insertdata.username"></ion-input>
+
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input required type="password" placeholder="รหัสผ่าน..."   [(ngModel)]="insertdata.pass"></ion-input>
+  </ion-item>
+  </ion-list>
+  <ion-button  type="submit" (click)="login()" expand="block"  class="ion-margin">
+    เข้าสู่ระบบ
+  </ion-button>
+  
+</ion-content>

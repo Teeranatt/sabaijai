@@ -10,7 +10,23 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'login-user',
+    loadChildren: () => import('./login-user/login-user.module').then( m => m.LoginUserPageModule)
   },
+  {
+    path: 'registerr',
+    loadChildren: () => import('./registerr/registerr.module').then( m => m.RegisterrPageModule)
+  },
+  {
+    path: 'depressiontest',
+    loadChildren: () => import('./depressiontest/depressiontest.module').then( m => m.DepressiontestPageModule)
+  },
+  {
+    path: 'stress-test',
+    loadChildren: () => import('./stress-test/stress-test.module').then( m => m.StressTestPageModule)
+  },
+
 ];
 
 @NgModule({
