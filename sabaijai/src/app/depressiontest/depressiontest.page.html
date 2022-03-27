@@ -5,5 +5,163 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid style="padding: 10px;">
+    <ion-row class="header-row" style="padding: 5px; background-color: bisque;">
+      <ion-col>
+        <ion-text>
+          <h4 style="padding: 25px;">ในช่วง 2 สัปดาห์ที่ผ่านมารวมทั้งวันนี้ท่านมีอาการเหล่านี้บ่อยแค่ไหน ?</h4>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <div style="background-color: rgb(246, 255, 127);">
+      <ion-row class="header-row" style="padding: 5px;">
+        <ion-col style="margin-left: 70px;">
+          <h6 style="font-size: 16px;">เหตุการณ์</h6>
+        </ion-col>
+
+        <ion-col>
+          <h6 style="font-size: 16px;margin-left: 110px;">0</h6>
+        </ion-col>
+
+        <ion-col style="margin-left: 9px;">
+          <h6 style="font-size: 16px;">
+            1
+          </h6>
+        </ion-col>
+
+        <ion-col style="margin-left: 9px;">
+          <h6 style="font-size: 16px;">
+            2
+          </h6>
+        </ion-col>
+
+        <ion-col style="margin-left: 9px;">
+          <h6 style="font-size: 16px;">3</h6>
+        </ion-col>
+      </ion-row>
+    </div>
+
+  </ion-grid>
+
+  <div style="margin-top: -15px;">
+    <!-- <div ><h5 style="margin-left: 272px;"> 0   1   2   3</h5></div> -->
+    <ion-radio-group [(ngModel)]="value_1" (ionChange)='valueC()'>
+      <ion-item>
+        <ion-label style="font-size: 14px;">
+          เบื่อ ไม่สนใจอยากทำอะไร</ion-label>
+        <ion-radio name="bored0" value=0 color="success" type="number"></ion-radio>
+        <ion-radio name="bored1" value=1 style="margin-left: 10px;" color="secondary"></ion-radio>
+        <ion-radio name="bored2" value=2 style="margin-left: 10px;" color="primary"></ion-radio>
+        <ion-radio name="bored3" value=3 style="margin-left: 10px;" color="warning"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-radio-group [(ngModel)]="value_2" (ionChange)='valueC()'>
+      <ion-item>
+        <ion-label style="font-size: 14px;">
+          ไม่สบายใจ ซึมเศร้า ท้อแท้</ion-label>
+        <ion-radio name="disheartened0" value=0 color="success" type="number"></ion-radio>
+        <ion-radio name="disheartened1" value=1 style="margin-left: 10px;" color="secondary"></ion-radio>
+        <ion-radio name="disheartened2" value=2 style="margin-left: 10px;" color="primary"></ion-radio>
+        <ion-radio name="disheartened3" value=3 style="margin-left: 10px;" color="warning"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-radio-group [(ngModel)]="value_3" (ionChange)='valueC()'>
+      <ion-item>
+        <ion-label style="font-size: 14px;">
+          หลับยาก หรือหลับๆ ตื่น ๆ หรือหลับมากไป</ion-label>
+        <ion-radio name="difficultfeelsadeep0" value=0 color="success"></ion-radio>
+        <ion-radio name="difficultfeelsadeep1" value=1 style="margin-left: 10px;" color="secondary"></ion-radio>
+        <ion-radio name="difficultfeelsadeep2" value=2 style="margin-left: 10px;" color="primary"></ion-radio>
+        <ion-radio name="difficultfeelsadeep3" value=3 style="margin-left: 10px;" color="warning"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-radio-group [(ngModel)]="value_4" (ionChange)='valueC()'>
+      <ion-item>
+        <ion-label style="font-size: 14px;">
+          เหนื่อยง่าย หรือไม่ค่อยมีแรง</ion-label>
+        <ion-radio name="self-harm0" value=0 color="success"></ion-radio>
+        <ion-radio name="self-harm1" value=1 style="margin-left: 10px;" color="secondary"></ion-radio>
+        <ion-radio name="self-harm2" value=2 style="margin-left: 10px;" color="primary"></ion-radio>
+        <ion-radio name="self-harm3" value=3 style="margin-left: 10px;" color="warning"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-radio-group [(ngModel)]="value_5" (ionChange)='valueC()'>
+      <ion-item>
+        <ion-label style="font-size: 14px;">
+          เบื่ออาหาร หรือกินมากเกินไป</ion-label>
+        <ion-radio name="Anorexia0" value=0 color="success"></ion-radio>
+        <ion-radio name="Anorexia1" value=1 style="margin-left: 10px;" color="secondary"></ion-radio>
+        <ion-radio name="Anorexia2" value=2 style="margin-left: 10px;" color="primary"></ion-radio>
+        <ion-radio name="Anorexia3" value=3 style="margin-left: 10px;" color="warning"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-radio-group [(ngModel)]="value_6" (ionChange)='valueC()'>
+      <ion-item>
+        <ion-label style="font-size: 14px;">
+          รู้สึกไม่ดีกับตัวเอง คิดว่าตัวเองล้มเหลว<br>
+          หรือทำให้ตนเองหรือครอบครัวผิดหวัง
+        </ion-label>
+        <ion-radio name="feelsad0" value=0 color="success" type="number"></ion-radio>
+        <ion-radio name="feelsad1" value=1 style="margin-left: 10px;" color="secondary"></ion-radio>
+        <ion-radio name="feelsad2" value=2 style="margin-left: 10px;" color="primary"></ion-radio>
+        <ion-radio name="feelsad3" value=3 style="margin-left: 10px;" color="warning"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-radio-group [(ngModel)]="value_7" (ionChange)='valueC()'>
+      <ion-item>
+        <ion-label style="font-size: 14px;">
+          สมาธิไม่ดีเวลาทำอะไร เช่น <br>
+          ดูโทรทัศน์ ฟังวิทยุ <br>
+          หรือทำงานที่ต้องใช้ความตั้งใจ
+        </ion-label>
+        <ion-radio name="meditate0" value=0 color="success" type="number"></ion-radio>
+        <ion-radio name="meditate1" value=1 style="margin-left: 10px;" color="secondary"></ion-radio>
+        <ion-radio name="meditate2" value=2 style="margin-left: 10px;" color="primary"></ion-radio>
+        <ion-radio name="meditate3" value=3 style="margin-left: 10px;" color="warning"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-radio-group [(ngModel)]="value_8" (ionChange)='valueC()'>
+      <ion-item>
+        <ion-label style="font-size: 14px;">
+          พูดช้า ทำอะไรช้าลง <br>
+          จนคนอื่นสังเกตเห็นได้ <br>
+          หรือกระสับกระส่าย <br>
+          ไม่สามารถอยู่นิ่งได้เหมือนที่เคยเป็น
+        </ion-label>
+        <ion-radio name="slowdown0" value=0 color="success"></ion-radio>
+        <ion-radio name="slowdown1" value=1 style="margin-left: 10px;" color="secondary"></ion-radio>
+        <ion-radio name="slowdown2" value=2 style="margin-left: 10px;" color="primary"></ion-radio>
+        <ion-radio name="slowdown3" value=3 style="margin-left: 10px;" color="warning"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-radio-group [(ngModel)]="value_9" (ionChange)='valueC()'>
+      <ion-item>
+        <ion-label style="font-size: 14px;">
+          คิดทำร้ายตนเอง <br>
+          หรือคิดว่าถ้าตายไปคงจะดี</ion-label>
+        <ion-radio name="self-harm0" value=0 color="success"></ion-radio>
+        <ion-radio name="self-harm1" value=1 style="margin-left: 10px;" color="secondary"></ion-radio>
+        <ion-radio name="self-harm2" value=2 style="margin-left: 10px;" color="primary"></ion-radio>
+        <ion-radio name="self-harm3" value=3 style="margin-left: 10px;" color="warning"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </div>
+
+  <div style="text-align: center;font-size: 25px;margin-top: 5px;">คะแนนการประเมิน : {{valueC()}}</div>
+
+  <ion-button color="success" expand="block" (click)="showResult()" class="ion-margin">ประเมินผล
+  </ion-button>
+  <ion-button color="primary" expand="block" class="ion-margin" style="margin-top: -10px;" [routerLink]="['/home']">
+    กลับสู่หน้าหลัก
+  </ion-button>
 
 </ion-content>

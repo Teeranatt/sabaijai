@@ -5,11 +5,11 @@
 </ion-header>
 
 <ion-content>
-  
-
+  <div style="margin-top:10px ;">
+  <ion-list >
     <ion-item>
-      <ion-label>Username :</ion-label>
-      <ion-input type="text" placeholder="กรอกชื่อของคุณ..." [(ngModel)]="data.name"></ion-input>
+      <ion-label >Username :</ion-label>
+      <ion-input type="text" placeholder="กรอกชื่อของคุณ..." [(ngModel)]="data.name" ></ion-input>
 
     </ion-item>
 
@@ -21,16 +21,24 @@
 
     <ion-item>
       <ion-label>Password :</ion-label>
-      <ion-input  type="password" placeholder="รหัสผ่าน..." [(ngModel)]="data.password"></ion-input>
+      <ion-input  type="password" placeholder="กรอกรหัสผ่าน" [(ngModel)]="data.password"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label>Confirm Password :</ion-label>
+      <ion-input  type="password" placeholder="กรอกรหัสผ่านอีกครั้ง" [(ngModel)]="data.repassword"></ion-input>
+    </ion-item>
+  </ion-list>
+
+</div>
 
   
 
-  <ion-button type="submit" (click)="saveuser()" expand="block" class="ion-margin">
+  <ion-button color="success" type="submit" (click)="saveuser()" expand="block" class="ion-margin">
     ลงทะเบียน
   </ion-button>
 
-  <ion-button color="primary" expand="block" class="ion-margin" style="margin-top: -10px;" [routerLink]="['/home']">
+  <ion-button color="primary" expand="block" class="ion-margin" style="margin-top: -10px;" [routerLink]="['/login-user']">
     กลับสู่หน้าหลัก
   </ion-button>
 

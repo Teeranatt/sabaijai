@@ -21,7 +21,7 @@ export class LoginUserPage implements OnInit {
   isSubmitted = false;
   insertdata: any = {};
   datausersmember: any = [];
-  user_id: string;
+  user_id: number;
 
   constructor(public http: HttpClient, private router: Router, public navCtrl: NavController,public alertController: AlertController) {
     this.insertdata.username = "";
@@ -55,8 +55,9 @@ export class LoginUserPage implements OnInit {
 
           //     this.router.navigate(['checkuser']);
           // this.checkuser()
-          window.sessionStorage.setItem("id", data[0].user_id);
+          // window.sessionStorage.setItem("id", data[0].user_id);
           if (this.insertdata.username == data[0].user_name &&(this.insertdata.pass) == data[0].password) {
+            this.user_id = data[0].user_id
             const alert = await this.alertController.create({
             cssClass: 'my-custom-class',
             header: 'แจ้งเตือน',
@@ -66,7 +67,8 @@ export class LoginUserPage implements OnInit {
                 text: 'ตกลง',
                 id: 'confirm-button',
                 handler: () => {
-                  this.router.navigate(['/home'])
+
+                  this.router.navigate(['home/'+JSON.stringify({'name':data[0].user_name,'id' : data[0].user_id})],)
                 }
               }
             ]
@@ -180,6 +182,10 @@ export class LoginUserPage implements OnInit {
   //     });
 
   // }
+
+  regis() {
+    this.router.navigate(['/registerr']);
+  }
 
   ngOnInit() {
   }

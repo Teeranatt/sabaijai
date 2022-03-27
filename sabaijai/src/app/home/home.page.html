@@ -11,10 +11,10 @@
   <div style="margin-top: 10px;">
     <ion-item>
       <ion-avatar slot="start">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        <img src="/assets/user.png">
       </ion-avatar>
       <ion-label>
-        <h3>Lorem ipsum</h3>
+        <h3>{{username}}</h3>
         <!-- <p>อายุ 21 ปี</p> -->
       </ion-label>
     </ion-item>
@@ -24,13 +24,13 @@
       <ion-row style="margin-left: -5px;margin-top: 0px;margin-right: -5px;">
 
         <ion-col size="6">
-          <ion-card style="padding: 10px;margin-top: 10px;background-color: rgb(255, 188, 101);text-align: center;" (click)="dostresstest()">
-            <!-- <img src="https://www.merseaislandlionsclub.com/wp-content/uploads/2017/04/clipboard-list-flat.png"
-              style="padding: 30px;" /> -->
+          <ion-card style="padding: 10px;margin-top: 10px;background-color: rgb(255, 188, 101);text-align: center;"  (click)="dostresstest()">
+            <!-- <img src="/assets/stress_img.png"
+              style="padding: 0px;" /> -->
             <ion-card-header>
               <ion-card-title style="text-align: center;font-size: 13px; margin-bottom: -15px;margin-top: -25px;">
                 แบบประเมินความเครียด</ion-card-title>
-            </ion-card-header>
+            </ion-card-header> 
             <!-- <ion-card-content>
             ความเครียด(Stress) คือ ภาวะของอารมณ์ ความรู้สึก ที่ถูกบีบคั้น กดดัน ทำให้มีอาการแสดงที่ต่างกัน เช่น
             วิตกกังวล นอนไม่หลับ ปวดหัว ซึมเศร้า บางคนอาจมีอาการประสาทหลอนได้
@@ -49,23 +49,26 @@
 
           </ion-card>
         </ion-col>
-        <ion-col size="6" style="margin-top: -10px;">
+
+        <ion-col size="6" style="margin-top: -15px;">
           <ion-card>
             <img src="" />
             <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 14px;">บันทึกกิจวัตรประจำวัน</ion-card-title>
+              <ion-card-title style="text-align: center;font-size: 14px;" (click)="diary()" >บันทึกกิจวัตรประจำวัน</ion-card-title>
             </ion-card-header>
           </ion-card>
         </ion-col>
-        <ion-col size="6">
+
+        <ion-col size="6" style="margin-top: -15px;">
           <ion-card>
             <img src="" />
             <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 14px;">ปฏิทิน</ion-card-title>
+              <ion-card-title style="text-align: center;font-size: 14px;">ประวัติการประเมิน</ion-card-title>
             </ion-card-header>
           </ion-card>
         </ion-col>
-        <ion-col size="6">
+
+        <ion-col size="6" style="margin-top: -15px;">
           <ion-card>
             <img src="" />
             <ion-card-header>
@@ -73,7 +76,8 @@
             </ion-card-header>
           </ion-card>
         </ion-col>
-        <ion-col size="6">
+
+        <ion-col size="6" style="margin-top: -15px;">
           <ion-card>
             <img src="" />
             <ion-card-header>
@@ -81,7 +85,8 @@
             </ion-card-header>
           </ion-card>
         </ion-col>
-        <ion-col size="6">
+
+        <ion-col size="6" style="margin-top: -15px;">
           <ion-card>
             <img src="" />
             <ion-card-header>
@@ -89,7 +94,8 @@
             </ion-card-header>
           </ion-card>
         </ion-col>
-        <ion-col size="6">
+
+        <ion-col size="6" style="margin-top: -15px;">
           <ion-card>
             <img src="" />
             <ion-card-header>
@@ -98,7 +104,8 @@
             </ion-card-header>
           </ion-card>
         </ion-col>
-        <ion-col size="6">
+
+        <ion-col size="6" style="margin-top: -15px;">
           <ion-card>
             <img src="" />
             <ion-card-header>
@@ -106,7 +113,8 @@
             </ion-card-header>
           </ion-card>
         </ion-col>
-        <ion-col size="6">
+
+        <ion-col size="6" style="margin-top: -15px;">
           <ion-card>
             <img src="" />
             <ion-card-header>
@@ -115,10 +123,10 @@
             </ion-card-header>
           </ion-card>
         </ion-col>
-        <ion-button color="primary" expand="block" class="ion-margin" style="margin-top: -10px;" (click)="regis()">
+        <!-- <ion-button color="primary" expand="block" class="ion-margin" style="margin-top: -10px;" (click)="regis()">
           ลงทะเบียน
         </ion-button>
-        <h6>{{getkey()}}</h6>
+        <h6>{{getkey()}}</h6> -->
 
 
 

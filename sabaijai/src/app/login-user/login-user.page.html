@@ -5,21 +5,30 @@
 </ion-header>
 
 <ion-content>
+  <div style="text-align: center;margin-top: 15px;"><img src="/assets/login.png" style="height: 1
+  0%;width: 90%;" ></div>
+<br>
+
   <ion-list>
 
     <ion-item>
-    <ion-label>Username</ion-label>
-    <ion-input required type="text" placeholder="กรอกชื่อของคุณ..."  [(ngModel)]="insertdata.username"></ion-input>
+      <ion-label>Username</ion-label>
+      <ion-input required type="text" placeholder="กรอกชื่อของคุณ..." [(ngModel)]="insertdata.username"></ion-input>
 
-  </ion-item>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-input required type="password" placeholder="รหัสผ่าน..."   [(ngModel)]="insertdata.pass"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input required type="password" placeholder="รหัสผ่าน..." [(ngModel)]="insertdata.pass"></ion-input>
+    </ion-item>
   </ion-list>
-  <ion-button  type="submit" (click)="login()" expand="block"  class="ion-margin">
+
+  <ion-button color="success" type="submit" (click)="login()" expand="block" class="ion-margin">
     เข้าสู่ระบบ
   </ion-button>
-  
+  <ion-button color="secondary" (click)="regis()" expand="block" class="ion-margin" style="margin-top: -10px;">
+    ลงทะเบียน
+  </ion-button>
+
+
 </ion-content>

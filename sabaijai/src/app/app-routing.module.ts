@@ -3,14 +3,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'home/:id',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login-user', 
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'login-user',
     loadChildren: () => import('./login-user/login-user.module').then( m => m.LoginUserPageModule)
   },
@@ -19,13 +20,23 @@ const routes: Routes = [
     loadChildren: () => import('./registerr/registerr.module').then( m => m.RegisterrPageModule)
   },
   {
-    path: 'depressiontest',
+    path: 'depressiontest/:id',
     loadChildren: () => import('./depressiontest/depressiontest.module').then( m => m.DepressiontestPageModule)
   },
   {
-    path: 'stress-test',
+    path: 'stress-test/:id',
     loadChildren: () => import('./stress-test/stress-test.module').then( m => m.StressTestPageModule)
   },
+  {
+    path: 'diary/:id',
+    loadChildren: () => import('./diary/diary.module').then( m => m.DiaryPageModule)
+  },
+  {
+    path: 'alldairy/:id',
+    loadChildren: () => import('./alldairy/alldairy.module').then( m => m.AlldairyPageModule)
+  },
+
+
 
 ];
 

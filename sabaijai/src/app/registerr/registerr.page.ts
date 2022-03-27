@@ -14,7 +14,7 @@ export class RegisterrPage implements OnInit {
 
   url: string = "http://localhost/appdata/insertdatalogin.php"
   data: any;
-  isSubmitted = false;
+  // isSubmitted = false;
 
   insertdata: any = [];
   constructor(
@@ -25,13 +25,34 @@ export class RegisterrPage implements OnInit {
       name: '',
       email: '',
       password: '',
+      repassword: '',
+
     };
 
   }
 
   async saveuser() {
-    if (this.data.name != "" &&
-    this.data.pass != "" &&this.data.email != "") {
+    if(this.data.password != this.data.repassword){
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'แจ้งเตือน',
+        message: 'รหัสผ่านไม่ถูกต้อง',
+        buttons: [
+          {
+            text: 'ตกลง',
+            id: 'confirm-button',
+            handler: () => {
+              this.router.navigate(['/registerr'])
+            }
+          }
+        ]
+      });
+
+      await alert.present();
+
+    }
+    else if (this.data.name != "" &&
+    this.data.password != "" && this.data.email != "" ) {
     let postdataset = new FormData();
     postdataset.append('name', this.data.name);
     postdataset.append('email', this.data.email);
@@ -48,7 +69,7 @@ export class RegisterrPage implements OnInit {
             text: 'ตกลง',
             id: 'confirm-button',
             handler: () => {
-              this.router.navigate(['/home'])
+              this.router.navigate(['/login-user'])
             }
           }
         ]
