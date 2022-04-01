@@ -8,8 +8,11 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  dateC: any = new Date();
-  date: string = this.dateC.getHours() + ':' + this.dateC.getMinutes() + ':' + this.dateC.getSeconds();
+  hours:any = new Date().getHours();
+  minutes :any = new Date().getMinutes()
+  // date: string = this.dateC.getHours() + ':' + this.dateC.getMinutes() 
+  //  ':' + this.dateC.getSeconds();
+  date_ :any = null;
   // id: any = window.sessionStorage.getItem('id');
   username: any;
   url: string = "http://localhost/appdata/loaddatausersmember.php"
@@ -38,8 +41,10 @@ export class HomePage {
     this.router.navigate(['stress-test/' +JSON.stringify({'name':this.username,'id' : this.id})]);
   }
   datetime() {
-    return this.date
-  }
+    // this.date_ = this.date
+    // return this.date
+    }
+
   do_depressiontest(){
     console.log("666666");
     this.router.navigate(['/depressiontest/'+JSON.stringify({'name':this.username,'id' : this.id})]);
@@ -80,4 +85,14 @@ export class HomePage {
   // userdata(){
   //   return awaitthis.username
   // }
+  ngOnInit() {
+    // while(this.date){
+    //   this.date_ = this.date
+    //   console.log(this.date_);
+      
+    // }
+    
+
+  }
+
 }

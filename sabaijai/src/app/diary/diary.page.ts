@@ -18,7 +18,6 @@ export class DiaryPage implements OnInit {
   user_id: any;
   dataJ: any;
   id: any;
-  score: any;
   username: any;
 
   constructor(private router: Router, public http: HttpClient, private activatedRoute: ActivatedRoute, public alertController: AlertController) {
@@ -119,6 +118,9 @@ export class DiaryPage implements OnInit {
 
     await alert.present();
 
+  }
+  gotohome(){
+    this.router.navigate(['home/'+ this.user_id]);
   }
 
   ngOnInit() {
