@@ -35,6 +35,11 @@ const routes: Routes = [
     path: 'alldairy/:id',
     loadChildren: () => import('./alldairy/alldairy.module').then( m => m.AlldairyPageModule)
   },
+  {
+    path: 'edit-diary/:id',
+    loadChildren: () => import('./edit-diary/edit-diary.module').then( m => m.EditDiaryPageModule)
+  },
+
 
 
 

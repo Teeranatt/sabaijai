@@ -81,6 +81,9 @@ export class AlldairyPage implements OnInit {
     console.log("data text: ", text);
 
   }
+  edit_diary(id:any,user_id:any){
+    this.router.navigate(['edit-diary/'+ JSON.stringify({'di_id':id,'user_id' : user_id})]);
+  }
 
   ngOnInit() {
 
@@ -108,7 +111,7 @@ export class AlldairyPage implements OnInit {
       // console.log("status : " + data )
       console.log("status2 : " + d.user_id)
       let obj = JSON.parse(data.toString());
-      console.log(obj[4].data_text);
+      // console.log(obj[4].data_text);
       // console.log(data.toString());
       this.diary = obj;
       // console.log(obj);
@@ -119,6 +122,8 @@ export class AlldairyPage implements OnInit {
 
 
     });
+    console.log(id);
+    
 
   }
 
