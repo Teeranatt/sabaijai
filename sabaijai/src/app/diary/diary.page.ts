@@ -15,6 +15,18 @@ export class DiaryPage implements OnInit {
   diary: any;
   url: string = "http://localhost/appdata/diary.php";
 
+  m1:boolean = false;
+  m2:boolean = false;
+  m3:boolean = false;
+  m4:boolean = false;
+  m5:boolean = false;
+  m6:boolean = false;
+  m7:boolean = false;
+  m8:boolean = false;
+  m9:boolean = false;
+  m10:boolean = false;
+
+
   user_id: any;
   dataJ: any;
   id: any;
@@ -28,6 +40,12 @@ export class DiaryPage implements OnInit {
     this.id = this.dataJ.id
 
 
+  }
+  clickmood(emotion:any){
+    this.mood = emotion;
+    if (emotion === 'ตื่นเต้น') {
+      this.m1 = true; 
+    }
   }
   show_mood() {
     console.log("mood : ", this.mood);

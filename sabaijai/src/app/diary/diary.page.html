@@ -16,7 +16,7 @@
     <div>
       <ion-card color="pink2">
 
-        <img src="/assets/mood3.png" style="margin: 16px;margin-left:30px;">
+        <img src="/assets/Interest.png" style="margin: 16px;margin-left:30px;width: 7%;" (click)="clickmood('ตื่นเต้น')">
         <img src="/assets/mood4.png" style="margin: 16px;">
         <img src="/assets/mood5.png" style="margin: 16px;">
         <img src="/assets/mood7.png" style="margin: 16px;">
@@ -30,7 +30,7 @@
 
       <!-- <ion-item color="oreng1" shape="round"> -->
       <ion-button shape="round" color="nood1" style="height: 5%;" fill="solid">
-        <ion-label class="mood">อารมณ์คุณเป็นอย่างไร :</ion-label>
+        <ion-label class="mood">อารมณ์คุณเป็นอย่างไร :</ion-label> 
         <ion-select  interface="action-sheet" class="mood" [(ngModel)]="mood">
 
           <ion-select-option value="อารมณ์ดีมาก">อารมณ์ดีมาก
@@ -46,10 +46,14 @@
 
         </ion-select>
       </ion-button>
-
-      <!-- </ion-item> -->
-
+      
     </div>
+    <div *ngIf="m1" style="padding: 10px;">
+        {{mood}}
+       <img src="/assets/Interest.png" style=" width: 5%;margin-top: 10px;" id="Interest">
+       
+
+      </div>
 
     <!-- <ion-card>
         <img src="/assets/minimal-flower.jpg"  sizes="small" >

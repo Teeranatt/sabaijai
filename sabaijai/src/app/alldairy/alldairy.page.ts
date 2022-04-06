@@ -82,7 +82,7 @@ export class AlldairyPage implements OnInit {
 
   }
   edit_diary(id:any,user_id:any){
-    this.router.navigate(['edit-diary/'+ JSON.stringify({'di_id':id,'user_id' : user_id})]);
+    this.router.navigate(['edit-diary/'+ JSON.stringify({'di_id':id,'user_data' : this.user_id})]);
   }
 
   ngOnInit() {
@@ -114,7 +114,9 @@ export class AlldairyPage implements OnInit {
       // console.log(obj[4].data_text);
       // console.log(data.toString());
       this.diary = obj;
-      // console.log(obj);
+      console.log(obj);
+      console.log(this.user_id);
+      
 
 
 

@@ -13,19 +13,33 @@ export class EditDiaryPage implements OnInit {
   mood: any;
   diary: any;
   url: string = "http://localhost/appdata/diary.php";
+  url2:string="http://localhost/appdata/load_data_edit.php";
 
+  m1:boolean = false;
+  m2:boolean = false;
+  m3:boolean = false;
+  m4:boolean = false;
+  m5:boolean = false;
+  m6:boolean = false;
+  m7:boolean = false;
+  m8:boolean = false;
+  m9:boolean = false;
+  m10:boolean = false;
+  
+  
   user_id: any;
   dataJ: any;
   id: any;
-  username: any;
+  user_data: any;
+
 
   constructor(private router: Router, public http: HttpClient, private activatedRoute: ActivatedRoute, public alertController: AlertController) {
     this.user_id = (this.activatedRoute.snapshot.paramMap.get('id'));
     let data = JSON.parse(this.user_id);
     this.dataJ = data;
-    this.username = this.dataJ.name
-    this.id = this.dataJ.id
-
+    this.user_data =  JSON.parse(this.dataJ.user_data)
+    this.id = this.dataJ.di_id;
+    
 
   }
   show_mood() {
@@ -121,9 +135,46 @@ export class EditDiaryPage implements OnInit {
   gotohome(){
     this.router.navigate(['home/'+ this.user_id]);
   }
+  clickmood(emotion:any){
+    this.mood = emotion;
+    if (emotion === 'ดีใจ') {
+      this.m1 = true; 
+    }
+    // console.log("emo : " , this.emo);
+    
+
+
+  }
 
   ngOnInit() {
-    // console.log(this.id.toString());
+    console.log(this.user_id);
+    // console.log(this.diary);
+    let obj = JSON.parse(this.user_id);
+    console.log("data user : " ,this.user_data);
+    console.log("id :",this.id);
+
+    let data: Observable<any> = this.http.get(
+      this.url2 + "/?id=" + this.id
+    );
+
+    data.subscribe(d => {
+      console.log(d[0].mood);
+      this.diary = d[0].data_text;
+      console.log("diiii  :",this.diary);
+      this.mood = d[0].mood
+      console.log("moddd : ",this.mood);
+      
+      
+      
+      
+    })
+    
+
+
+    
+    
+    
+    
 
   }
 

@@ -15,9 +15,10 @@
 
     <div>
       <ion-card color="pink2">
+        
+        <img src="/assets/Interest.png" style="margin: 16px;margin-left:30px;width: 20px;" (click)="clickmood('เศร้า')" >
+        <img src="/assets/mood4.png" style="margin: 16px;" (click)="clickmood('ดีใจ')" >
 
-        <img src="/assets/mood3.png" style="margin: 16px;margin-left:30px;">
-        <img src="/assets/mood4.png" style="margin: 16px;">
         <img src="/assets/mood5.png" style="margin: 16px;">
         <img src="/assets/mood7.png" style="margin: 16px;">
         <img src="/assets/mood8.png" style="margin: 16px;">
@@ -30,7 +31,7 @@
 
       <!-- <ion-item color="oreng1" shape="round"> -->
       <ion-button shape="round" color="nood1" style="height: 5%;" fill="solid">
-        <ion-label class="mood">อารมณ์คุณเป็นอย่างไร :</ion-label>
+        <ion-label class="mood">อารมณ์คุณเป็นอย่างไร :</ion-label> 
         <ion-select  interface="action-sheet" class="mood" [(ngModel)]="mood">
 
           <ion-select-option value="อารมณ์ดีมาก">อารมณ์ดีมาก
@@ -45,7 +46,11 @@
           <ion-select-option value="อารมณ์ไม่ดี">อารมณ์ไม่ดี</ion-select-option>
 
         </ion-select>
-      </ion-button>
+      </ion-button>{{mood}}
+      <div *ngIf="m1">
+        <img src="/assets/mood5.png" style="margin: 16px;">
+
+      </div>
 
       <!-- </ion-item> -->
 
@@ -60,7 +65,7 @@
     <div style="padding: 15px;">
 
       <ion-item color="light">
-        <ion-textarea rows="10" cols="20" placeholder="เขียนอะไรซักอย่าง . . ." shape="round" [(ngModel)]="diary"></ion-textarea>
+        <ion-textarea rows="10" cols="20" placeholder="เขียนอะไรซักอย่าง . . ." shape="round" [(ngModel)]="diary" ></ion-textarea>
       </ion-item>
 
 
