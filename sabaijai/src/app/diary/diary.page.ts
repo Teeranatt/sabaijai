@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class DiaryPage implements OnInit {
 
-  mood: any;
+  mood: string = "";
   diary: any;
   url: string = "http://localhost/appdata/diary.php";
 
@@ -46,6 +46,92 @@ export class DiaryPage implements OnInit {
     if (emotion === 'ตื่นเต้น') {
       this.m1 = true; 
     }
+    else if (emotion === 'รื่นเริง') {
+      this.m1 = false; 
+      this.m2 = true; 
+    }
+    else if (emotion === 'ประหลาดใจ') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = true;
+    }
+    else if (emotion === 'เสียใจ') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = true;
+    }
+    else if (emotion === 'โกรธ') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = true;
+    }
+    else if (emotion === 'รังเกียจ') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = true;
+    }
+    else if (emotion === 'ดูถูก') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = true;
+    }
+    else if (emotion === 'กลัว') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = false;
+      this.m8  = true;
+    }
+    else if (emotion === 'อับอาย') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = false;
+      this.m8  = false;
+      this.m9 = true;
+    }
+    else if (emotion === 'รู้สึกผิด') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = false;
+      this.m8 = false;
+      this.m9 = false;
+      this.m10 = true;
+    }
+    else{
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = false;
+      this.m8 = false;
+      this.m9 = false;
+      this.m10 = false;
+    }
+
+
   }
   show_mood() {
     console.log("mood : ", this.mood);

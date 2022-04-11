@@ -12,8 +12,8 @@ import { Observable } from 'rxjs';
 export class EditDiaryPage implements OnInit {
   mood: any;
   diary: any;
-  url: string = "http://localhost/appdata/diary.php";
-  url2:string="http://localhost/appdata/load_data_edit.php";
+  url: string = "http://localhost/appdata/editdiary.php";
+  url2:string=  "http://localhost/appdata/load_data_edit.php";
 
   m1:boolean = false;
   m2:boolean = false;
@@ -31,6 +31,7 @@ export class EditDiaryPage implements OnInit {
   dataJ: any;
   id: any;
   user_data: any;
+  
 
 
   constructor(private router: Router, public http: HttpClient, private activatedRoute: ActivatedRoute, public alertController: AlertController) {
@@ -78,8 +79,11 @@ export class EditDiaryPage implements OnInit {
   }
   save_diary() {
     let id = (this.id).toString();
+    console.log("kkkkk",(this.id).toString());
+    
     let diary = this.diary;
     let mood = this.mood;
+
     let dataPost = new FormData();
     dataPost.append('id', id);
     dataPost.append('diary', diary);
@@ -122,7 +126,9 @@ export class EditDiaryPage implements OnInit {
           handler: () => {
             // this.save_diary();
             console.log("บันทึกเรียบร้อย");
-            this.router.navigate(['alldairy/'+ this.user_id]);
+            console.log(this.user_id);
+            
+            this.router.navigate(['alldairy/'+ JSON.stringify(this.user_data)]);
             
           }
         }
@@ -133,7 +139,7 @@ export class EditDiaryPage implements OnInit {
 
   }
   gotohome(){
-    this.router.navigate(['home/'+ this.user_id]);
+    this.router.navigate(['home/'+ JSON.stringify(this.user_data)]);
   }
   clickmood(emotion:any){
     this.mood = emotion;
@@ -150,8 +156,10 @@ export class EditDiaryPage implements OnInit {
     console.log(this.user_id);
     // console.log(this.diary);
     let obj = JSON.parse(this.user_id);
-    console.log("data user : " ,this.user_data);
+    console.log("data user : " , JSON.stringify(this.user_data));
     console.log("id :",this.id);
+    console.log(obj);
+    
 
     let data: Observable<any> = this.http.get(
       this.url2 + "/?id=" + this.id

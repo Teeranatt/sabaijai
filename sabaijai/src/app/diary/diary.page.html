@@ -16,12 +16,17 @@
     <div>
       <ion-card color="pink2">
 
-        <img src="/assets/Interest.png" style="margin: 16px;margin-left:30px;width: 7%;" (click)="clickmood('ตื่นเต้น')">
-        <img src="/assets/mood4.png" style="margin: 16px;">
-        <img src="/assets/mood5.png" style="margin: 16px;">
-        <img src="/assets/mood7.png" style="margin: 16px;">
-        <img src="/assets/mood8.png" style="margin: 16px;">
-        <img src="/assets/mood9.png" style="margin: 16px;">
+        <img src="/assets/Interest.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('ตื่นเต้น')">
+        <img src="/assets/joy.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('รื่นเริง')">
+        <img src="/assets/Surprise.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('ประหลาดใจ')">
+        <img src="/assets/Distress.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('เสียใจ')">
+        <img src="/assets/Anger.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('โกรธ')">
+        <img src="/assets/Disgust.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('รังเกียจ')">
+        <img src="/assets/Contempt.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('ดูถูก')">
+        <img src="/assets/Fear.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('กลัว')">
+        <img src="/assets/Humiliation.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('อับอาย')">
+        <img src="/assets/Guilt.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('รู้สึกผิด')">
+        
 
       </ion-card>
     </div>
@@ -29,9 +34,17 @@
     <div style="margin-left: 3%;">
 
       <!-- <ion-item color="oreng1" shape="round"> -->
-      <ion-button shape="round" color="nood1" style="height: 5%;" fill="solid">
-        <ion-label class="mood">อารมณ์คุณเป็นอย่างไร :</ion-label> 
-        <ion-select  interface="action-sheet" class="mood" [(ngModel)]="mood">
+      <ion-button shape="round" color="nood1" style="height: 40px;" fill="solid">
+        <ion-label class="mood">อารมณ์คุณเป็นอย่างไร :  </ion-label> 
+        <div *ngIf="m1" style="font-size: small;">
+      {{mood}}
+       <img src="/assets/Interest.png" style=" width: 15%;margin-top: -3px;margin-left: 10px;" id="Interest">
+      </div>
+      <div *ngIf="m2 && !m1"  style="font-size: small;">
+        {{mood}}
+         <img src="/assets/joy.png" style=" width: 15%;margin-top: -3px;margin-left: 10px;" id="Interest">
+        </div>
+        <!-- <ion-select  interface="action-sheet" class="mood" [(ngModel)]="mood">
 
           <ion-select-option value="อารมณ์ดีมาก">อารมณ์ดีมาก
           </ion-select-option>
@@ -44,16 +57,11 @@
           <ion-select-option value="อารมณ์ไม่ค่อยดี">อารมณ์ไม่ค่อยดี</ion-select-option>
           <ion-select-option value="อารมณ์ไม่ดี">อารมณ์ไม่ดี</ion-select-option>
 
-        </ion-select>
+        </ion-select> -->
       </ion-button>
       
     </div>
-    <div *ngIf="m1" style="padding: 10px;">
-        {{mood}}
-       <img src="/assets/Interest.png" style=" width: 5%;margin-top: 10px;" id="Interest">
-       
-
-      </div>
+    
 
     <!-- <ion-card>
         <img src="/assets/minimal-flower.jpg"  sizes="small" >
