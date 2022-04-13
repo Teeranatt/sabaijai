@@ -16,17 +16,20 @@
     <div>
       <ion-card color="pink2">
 
-        <img src="/assets/Interest.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('ตื่นเต้น')">
-        <img src="/assets/joy.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('รื่นเริง')">
-        <img src="/assets/Surprise.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('ประหลาดใจ')">
-        <img src="/assets/Distress.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('เสียใจ')">
-        <img src="/assets/Anger.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('โกรธ')">
-        <img src="/assets/Disgust.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('รังเกียจ')">
-        <img src="/assets/Contempt.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('ดูถูก')">
-        <img src="/assets/Fear.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('กลัว')">
-        <img src="/assets/Humiliation.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('อับอาย')">
-        <img src="/assets/Guilt.png" style="margin: 10px;margin-left:30px;width: 7%;" (click)="clickmood('รู้สึกผิด')">
-        
+        <img src="/assets/Interest.png" style="margin: 10px;margin-left:35px;width: 7%;"
+          (click)="clickmood('ตื่นเต้น')">
+        <img src="/assets/joy.png" style="margin: 10px;margin-left:35px;width: 7%;" (click)="clickmood('รื่นเริง')">
+        <img src="/assets/Surprise.png" style="margin: 10px;margin-left:35px;width: 7%;"
+          (click)="clickmood('ประหลาดใจ')">
+        <img src="/assets/Distress.png" style="margin: 10px;margin-left:35px;width: 7%;" (click)="clickmood('เสียใจ')">
+        <img src="/assets/Anger.png" style="margin: 10px;margin-left:35px;width: 7%;" (click)="clickmood('โกรธ')">
+        <img src="/assets/Disgust.png" style="margin: 10px;margin-left:35px;width: 7%;" (click)="clickmood('รังเกียจ')">
+        <img src="/assets/Contempt.png" style="margin: 10px;margin-left:35px;width: 7%;" (click)="clickmood('ดูถูก')">
+        <img src="/assets/Fear.png" style="margin: 10px;margin-left:35px;width: 7%;" (click)="clickmood('กลัว')">
+        <img src="/assets/Humiliation.png" style="margin: 10px;margin-left:35px;width: 7%;"
+          (click)="clickmood('อับอาย')">
+        <img src="/assets/Guilt.png" style="margin: 10px;margin-left:35px;width: 7%;" (click)="clickmood('รู้สึกผิด')">
+
 
       </ion-card>
     </div>
@@ -34,16 +37,53 @@
     <div style="margin-left: 3%;">
 
       <!-- <ion-item color="oreng1" shape="round"> -->
-      <ion-button shape="round" color="nood1" style="height: 40px;" fill="solid">
-        <ion-label class="mood">อารมณ์คุณเป็นอย่างไร :  </ion-label> 
-        <div *ngIf="m1" style="font-size: small;">
-      {{mood}}
-       <img src="/assets/Interest.png" style=" width: 15%;margin-top: -3px;margin-left: 10px;" id="Interest">
-      </div>
-      <div *ngIf="m2 && !m1"  style="font-size: small;">
-        {{mood}}
-         <img src="/assets/joy.png" style=" width: 15%;margin-top: -3px;margin-left: 10px;" id="Interest">
+      <ion-button shape="round" color="nood1" style="height: 40px;" fill="solid" >
+        <ion-label class="mood">อารมณ์คุณเป็นอย่างไร : </ion-label>
+        <div *ngIf="m1" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/Interest.png" style=" width: 15%;margin-top: -3px;margin-left: 2px;" id="Interest">
         </div>
+        <div *ngIf="m2 && !m1" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/joy.png" style=" width: 15%;margin-top: -3px;margin-left: -2px;" id="Interest">
+        </div>
+        <div *ngIf="m3 && !m1 && !m2" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/Surprise.png" style=" width: 12%;margin-top: -9px;margin-left: -2px;" id="Interest">
+        </div>
+        <div *ngIf="m4 && !m3 && !m1 && !m2" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/Distress.png" style=" width: 15%;margin-top: -3px;margin-left: -2px;" id="Interest">
+        </div>
+        <div *ngIf="m5 && !m4 && !m3 && !m1 && !m2" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/Anger.png" style=" width: 15%;margin-top: -3px;margin-left: -2px;" id="Interest">
+        </div>
+        <div *ngIf=" m6 && !m5 && !m4 && !m3 && !m1 && !m2" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/Disgust.png" style=" width: 15%;margin-top: -3px;margin-left: -2px;" id="Interest">
+        </div>
+        <div *ngIf=" m7 && !m6 && !m5 && !m4 && !m3 && !m1 && !m2" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/Contempt.png" style=" width: 15%;margin-top: -3px;margin-left: -2px;" id="Interest">
+        </div>
+        <div *ngIf=" m8 && !m7 && !m6 && !m5 && !m4 && !m3 && !m1 && !m2" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/Fear.png" style=" width: 15%;margin-top: -5px;margin-left: -2px;" id="fear">
+        </div>
+        <div *ngIf=" m9 && !m8 && !m7 && !m6 && !m5 && !m4 && !m3 && !m1 && !m2" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/Humiliation.png" style=" width: 15%;margin-top: -5px;margin-left: -2px;" id="Humiliation">
+        </div>
+        <div *ngIf=" m10 && !m9 && !m8 && !m7 && !m6 && !m5 && !m4 && !m3 && !m1 && !m2" style="font-size: small;margin-left: -15px;margin-top: -1px;">
+          {{mood}}
+          <img src="/assets/Guilt.png" style=" width: 15%;margin-top: -5px;margin-left: -2px;" id="Humiliation">
+        </div>
+        <div *ngIf="m0 && !m10 && !m9 && !m8 && !m7 && !m6 && !m5 && !m4 && !m3 && !m1 && !m2" style="font-size: small;margin-left: 5px;margin-top: -1px;" id="m0">
+          <p>เลือกอิโมจิอารมณ์ของคุณ...</p>
+          
+        </div>
+        
         <!-- <ion-select  interface="action-sheet" class="mood" [(ngModel)]="mood">
 
           <ion-select-option value="อารมณ์ดีมาก">อารมณ์ดีมาก
@@ -59,9 +99,9 @@
 
         </ion-select> -->
       </ion-button>
-      
+
     </div>
-    
+
 
     <!-- <ion-card>
         <img src="/assets/minimal-flower.jpg"  sizes="small" >
@@ -72,7 +112,8 @@
     <div style="padding: 15px;">
 
       <ion-item color="light">
-        <ion-textarea rows="10" cols="20" placeholder="เขียนอะไรซักอย่าง . . ." shape="round" [(ngModel)]="diary"></ion-textarea>
+        <ion-textarea rows="10" cols="20" placeholder="เขียนอะไรซักอย่าง . . ." shape="round" [(ngModel)]="diary">
+        </ion-textarea>
       </ion-item>
 
 

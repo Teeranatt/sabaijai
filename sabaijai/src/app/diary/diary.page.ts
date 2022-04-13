@@ -15,6 +15,7 @@ export class DiaryPage implements OnInit {
   diary: any;
   url: string = "http://localhost/appdata/diary.php";
 
+  m0:boolean = true;
   m1:boolean = false;
   m2:boolean = false;
   m3:boolean = false;
@@ -129,6 +130,7 @@ export class DiaryPage implements OnInit {
       this.m8 = false;
       this.m9 = false;
       this.m10 = false;
+      this.m0 = true;
     }
 
 
@@ -229,6 +231,8 @@ export class DiaryPage implements OnInit {
 
   ngOnInit() {
     console.log((this.id).toString());
+    console.log(this.m0);
+    
 
   }
 
