@@ -8,17 +8,17 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  hours:any = new Date().getHours();
-  minutes :any = new Date().getMinutes()
-  // date: string = this.dateC.getHours() + ':' + this.dateC.getMinutes() 
-  //  ':' + this.dateC.getSeconds();
+  // hours:any = new Date().getHours();
+  // minutes :any = new Date().getMinutes()
+
   date_ :any = null;
-  // id: any = window.sessionStorage.getItem('id');
+  
   username: any;
   url: string = "http://localhost/appdata/loaddatausersmember.php"
   user_id:any;
   dataJ:any;
   id:any;
+  date_regis:any;
 
   constructor(private router: Router, public http: HttpClient,private activatedRoute:ActivatedRoute) {
 
@@ -27,6 +27,7 @@ export class HomePage {
     this.dataJ = data;
     this.username = this.dataJ.name
     this.id = this.dataJ.id
+    this.date_regis = this.dataJ.date
 
     // console.log(this.dataJ.id);
     
@@ -40,10 +41,13 @@ export class HomePage {
     console.log("555555");
     this.router.navigate(['stress-test/' +JSON.stringify({'name':this.username,'id' : this.id})]);
   }
-  datetime() {
-    // this.date_ = this.date
-    // return this.date
+  alldiary() {
+    this.router.navigate(['alldairy/'+ this.user_id]);   
     }
+  logout(){
+    // this.router.navigate(['/login-user']);
+    this.router.navigate(['']);
+  }
 
   do_depressiontest(){
     console.log("666666");
@@ -51,9 +55,6 @@ export class HomePage {
   }
   diary(){
     this.router.navigate(['/diary/'+JSON.stringify({'name':this.username,'id' : this.id})]);
-  }
-  regis() {
-    this.router.navigate(['/registerr']);
   }
   getkey() {
     return window.sessionStorage.getItem('id');
@@ -91,6 +92,7 @@ export class HomePage {
     //   console.log(this.date_);
       
     // }
+    console.log(this.dataJ);
     
 
   }

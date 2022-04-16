@@ -3,7 +3,7 @@
     <ion-title style="font-size: medium;margin-top: 8px;">
       Homepage
     </ion-title>
-    <ion-text slot="end" style="margin-right: 20px;" (ionChange)='datetime()'>{{hours}}:{{minutes}}</ion-text>
+    <ion-text slot="end" style="margin-right: 20px;font-size: medium;margin-top: 8px;" (click)='logout()'>Log Out</ion-text>
   </ion-toolbar>
 </ion-header>
 
@@ -13,10 +13,14 @@
       <ion-avatar slot="start">
         <img src="/assets/user.png">
       </ion-avatar>
-      <ion-label>
-        <h3>{{username}}</h3>
-        <!-- <p>อายุ 21 ปี</p> -->
+
+      <ion-label style="margin-top: 25px;">
+        <h2 style="margin-left: 5px;">{{username}}</h2>
+        <ion-button shape="round" color="nood1" style="width: 150px;height: 80%;" fill="solid" ><div style="padding: 6px;font-size: smaller;">วันที่เข้าร่วม : {{date_regis}}</div></ion-button>
+       
       </ion-label>
+      
+
     </ion-item>
   </div>
   <div style="margin-top: 10px;">
@@ -87,7 +91,7 @@
         </ion-col>
 
         <ion-col size="6" style="margin-top: -15px;">
-          <ion-card>
+          <ion-card (click)="alldiary()">
             <img src="" />
             <ion-card-header>
               <ion-card-title style="text-align: center;font-size: 14px;">My Diary</ion-card-title>

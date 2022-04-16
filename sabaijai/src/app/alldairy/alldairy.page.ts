@@ -124,7 +124,7 @@ export class AlldairyPage implements OnInit {
 
 
     });
-    console.log(id);
+    console.log("id",id);
     
 
   }

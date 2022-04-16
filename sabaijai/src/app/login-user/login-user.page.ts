@@ -68,7 +68,7 @@ export class LoginUserPage implements OnInit {
                 id: 'confirm-button',
                 handler: () => {
 
-                  this.router.navigate(['home/'+JSON.stringify({'name':data[0].user_name,'id' : data[0].user_id})],)
+                  this.router.navigate(['home/'+JSON.stringify({'name':data[0].user_name,'id' : data[0].user_id,'date':data[0].date_of_register})],)
                 }
               }
             ]
@@ -139,7 +139,7 @@ export class LoginUserPage implements OnInit {
         //   alert(" ผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ")
         // }
         console.log("1", data);
-        console.log("2", window.sessionStorage.getItem('id'));
+        // console.log("2", window.sessionStorage.getItem('id'));
         console.log("data", data[0].user_name);
 
 
