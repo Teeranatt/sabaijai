@@ -15,6 +15,7 @@ export class EditDiaryPage implements OnInit {
   url: string = "http://localhost/appdata/editdiary.php";
   url2:string=  "http://localhost/appdata/load_data_edit.php";
 
+  m0:boolean = true;
   m1:boolean = false;
   m2:boolean = false;
   m3:boolean = false;
@@ -77,26 +78,25 @@ export class EditDiaryPage implements OnInit {
 
     await alert.present();
   }
-  save_diary() {
+  async save_diary() {
     let id = (this.id).toString();
     console.log("kkkkk",(this.id).toString());
     
-    let diary = this.diary;
-    let mood = this.mood;
+   
 
     let dataPost = new FormData();
-    dataPost.append('id', id);
-    dataPost.append('diary', diary);
-    dataPost.append('mood', mood);
+    dataPost.append('id', this.id);
+    dataPost.append('diary', this.diary);
+    dataPost.append('mood', this.mood);
     console.log("1", dataPost);
     console.log("id : " + id);
 
     let data: Observable<any> = this.http.post(this.url, dataPost);
     console.log("2", data);
 
-    data.subscribe(d => {
+    data.subscribe( d => {
       console.log("status : " + d);
-      if(d!=null){
+       if(d === "Record updated successfully"){
         this.save_success()
 
       }
@@ -112,7 +112,7 @@ export class EditDiaryPage implements OnInit {
 
 
   }
-  async save_success() {
+    async save_success() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'แจ้งเตือน : ',
@@ -128,7 +128,8 @@ export class EditDiaryPage implements OnInit {
             console.log("บันทึกเรียบร้อย");
             console.log(this.user_id);
             
-            this.router.navigate(['alldairy/'+ JSON.stringify(this.user_data)]);
+            this.alldiary()
+            
             
           }
         }
@@ -143,13 +144,100 @@ export class EditDiaryPage implements OnInit {
   }
   clickmood(emotion:any){
     this.mood = emotion;
-    if (emotion === 'ดีใจ') {
+    if (emotion === 'ตื่นเต้น') {
       this.m1 = true; 
     }
-    // console.log("emo : " , this.emo);
-    
+    else if (emotion === 'รื่นเริง') {
+      this.m1 = false; 
+      this.m2 = true; 
+    }
+    else if (emotion === 'ประหลาดใจ') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = true;
+    }
+    else if (emotion === 'เสียใจ') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = true;
+    }
+    else if (emotion === 'โกรธ') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = true;
+    }
+    else if (emotion === 'รังเกียจ') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = true;
+    }
+    else if (emotion === 'ดูถูก') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = true;
+    }
+    else if (emotion === 'กลัว') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = false;
+      this.m8  = true;
+    }
+    else if (emotion === 'อับอาย') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = false;
+      this.m8  = false;
+      this.m9 = true;
+    }
+    else if (emotion === 'รู้สึกผิด') {
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = false;
+      this.m8 = false;
+      this.m9 = false;
+      this.m10 = true;
+    }
+    else{
+      this.m1 = false; 
+      this.m2 = false; 
+      this.m3 = false;
+      this.m4 = false;
+      this.m5 = false;
+      this.m6 = false;
+      this.m7 = false;
+      this.m8 = false;
+      this.m9 = false;
+      this.m10 = false;
+      this.m0 = true;
+    }
 
 
+  }
+  alldiary(){
+    this.router.navigate(['alldairy/'+ JSON.stringify(this.user_data)]);
+    console.log(this.user_data);
   }
 
   ngOnInit() {

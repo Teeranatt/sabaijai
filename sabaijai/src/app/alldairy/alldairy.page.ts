@@ -85,23 +85,13 @@ export class AlldairyPage implements OnInit {
     this.router.navigate(['edit-diary/'+ JSON.stringify({'di_id':id,'user_data' : this.user_id})]);
   }
 
+  gotohome(){
+    this.router.navigate(['home/'+ this.user_id]);
+  }
+
   ngOnInit() {
 
     let id = (this.id).toString();
-    // let dataPost = new FormData();
-    // dataPost.append('id',id);
-    // console.log("1",dataPost);
-    // console.log("id : "+id);
-
-
-
-
-
-    // var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'True' });
-    // let data = this.http.put(url, dataPost, { responseType: 'text'}).toPromise();
-    // let data:Observable<any> = this.http.post(this.url,id);
-    // console.log("2",data);
-
     let data: Observable<any> = this.http.get(
       this.url + "/?id=" + id
     );
@@ -115,16 +105,11 @@ export class AlldairyPage implements OnInit {
       // console.log(data.toString());
       this.diary = obj;
       console.log(obj);
-      console.log(this.user_id);
-      
-
-
-
-
+      console.log("5555555",this.user_id);
 
 
     });
-    console.log("id",id);
+    console.log("id ------------",id);
     
 
   }

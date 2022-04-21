@@ -39,10 +39,10 @@ export class HomePage {
 
   dostresstest() {
     console.log("555555");
-    this.router.navigate(['stress-test/' +JSON.stringify({'name':this.username,'id' : this.id})]);
+    this.router.navigate(['stress-test/' +JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);
   }
   alldiary() {
-    this.router.navigate(['alldairy/'+ this.user_id]);   
+    this.router.navigate(['alldairy/'+ JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);   
     }
   logout(){
     // this.router.navigate(['/login-user']);
@@ -51,10 +51,10 @@ export class HomePage {
 
   do_depressiontest(){
     console.log("666666");
-    this.router.navigate(['/depressiontest/'+JSON.stringify({'name':this.username,'id' : this.id})]);
+    this.router.navigate(['/depressiontest/'+JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);
   }
   diary(){
-    this.router.navigate(['/diary/'+JSON.stringify({'name':this.username,'id' : this.id})]);
+    this.router.navigate(['/diary/'+JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);
   }
   getkey() {
     return window.sessionStorage.getItem('id');
@@ -93,6 +93,8 @@ export class HomePage {
       
     // }
     console.log(this.dataJ);
+    console.log("date  :" , this.dataJ.date);
+    
     
 
   }

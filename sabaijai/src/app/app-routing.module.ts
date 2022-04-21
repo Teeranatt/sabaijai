@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'edit-diary/:id',
     loadChildren: () => import('./edit-diary/edit-diary.module').then( m => m.EditDiaryPageModule)
+  },  {
+    path: 'all-tested',
+    loadChildren: () => import('./all-tested/all-tested.module').then( m => m.AllTestedPageModule)
   },
+
 
 
 
