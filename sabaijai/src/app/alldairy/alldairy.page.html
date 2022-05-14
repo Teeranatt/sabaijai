@@ -6,7 +6,7 @@
 
 <ion-content>
 
-  <ion-list>
+  <ion-list *ngIf="diary">
     <ion-card *ngFor="let item of diary" style="padding: 20px;">
       <!-- <ion-avatar slot="start">
         <img src="./avatar-finn.png" />
@@ -23,18 +23,34 @@
       </ion-label>
       <p>{{item.data_text}}</p>
 
+
       <div style="flex: 1;text-align:right;">
-        <ion-icon name="pencil-outline" id="pencil" color="warning" (click)="edit_diary(item.di_id,item.user_id)"></ion-icon>
+        <ion-icon name="pencil-outline" id="pencil" color="warning" (click)="edit_diary(item.di_id,item.user_id)">
+        </ion-icon>
         <ion-icon name="trash" id="trash" (click)=" del_diary(item.di_id,item.data_text)" color="danger"></ion-icon>
       </div>
 
 
+
     </ion-card>
   </ion-list>
+  <div *ngIf="!diary" style="margin-top: 100px;">
+    <ion-list>
+      <div style="padding: 50px;text-align: center;" class="not-diary" >
+       <p>เอ๊ะ!</p>  
+        <p style="margin-top: -10px;">เหมือนยังไม่มีบันทึกนะ </p> 
+
+
+      </div>
+    </ion-list>
+  </div>
   <div style="padding: 10px;" (click)="gotohome()">
-    <ion-button  expand="block"  shape="round" style="margin-top: -19px;height: 45px;" color="nood1">
+    <ion-button expand="block" shape="round" style="margin-top: -19px;height: 45px;" color="nood1">
       กลับสู่หน้าหลัก
     </ion-button>
 
   </div>
+  <!-- <ion-button (click)="show()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button> -->
 </ion-content>

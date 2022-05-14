@@ -27,7 +27,7 @@ export class DepressiontestPage implements OnInit {
   score:any;
   username: any;
 
-  url:string = "http://localhost/appdata/stresstest.php";
+  url:string = "http://localhost/appdata/depressiontest.php";
 
   // varSum:number = parseInt(this.value_1) + parseInt(this.value_2);
   constructor(private router: Router, public http: HttpClient,private activatedRoute:ActivatedRoute, public alertController: AlertController) {
@@ -262,6 +262,10 @@ export class DepressiontestPage implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.user_id);
+    console.log(this.dataJ);
+    
+    
   }
 
 }

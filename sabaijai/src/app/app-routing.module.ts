@@ -38,8 +38,9 @@ const routes: Routes = [
   {
     path: 'edit-diary/:id',
     loadChildren: () => import('./edit-diary/edit-diary.module').then( m => m.EditDiaryPageModule)
-  },  {
-    path: 'all-tested',
+  },
+  {
+    path: 'all-tested/:id',
     loadChildren: () => import('./all-tested/all-tested.module').then( m => m.AllTestedPageModule)
   },
 

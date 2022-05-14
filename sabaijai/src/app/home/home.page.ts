@@ -56,9 +56,10 @@ export class HomePage {
   diary(){
     this.router.navigate(['/diary/'+JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);
   }
-  getkey() {
-    return window.sessionStorage.getItem('id');
-  }
+ all_Tested(){
+  this.router.navigate(['/all-tested/'+JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);
+
+ }
   getuser() {
     // let url: string = "http://localhost/appdata/loaddatausersmember.php"
     // // let url = "http://localhost/db_ifightcovid19/insertdataloginpatient.php";

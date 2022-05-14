@@ -10,10 +10,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./alldairy.page.scss'],
 })
 export class AlldairyPage implements OnInit {
+  // arr:any[];
 
 
   mood: any;
-  diary: any;
+  diary:any;
   url: string = "http://localhost/appdata/loaddiary.php";
   date: any;
   url_2: string = "http://localhost/appdata/delete_diary.php";
@@ -61,7 +62,7 @@ export class AlldairyPage implements OnInit {
                 this.url_2 + "/?id=" + id
               );
               data.subscribe(d => {
-                if (d == "status ok") {
+                if (d == "saved") {
                   console.log(d + "======");
                   this.ngOnInit();
                 }
@@ -98,20 +99,47 @@ export class AlldairyPage implements OnInit {
 
     data.subscribe(d => {
       let data = JSON.stringify(d)
+
+      // let ar = []
+
       // console.log("status : " + data )
       console.log("status2 : " + d.user_id)
+      console.log("dataaaa : ");
+      
       let obj = JSON.parse(data.toString());
       // console.log(obj[4].data_text);
       // console.log(data.toString());
       this.diary = obj;
-      console.log(obj);
+      console.log("obj : ",obj[0].mood);
       console.log("5555555",this.user_id);
+      console.log("diary : ", this.diary);
+    //  (this.diary).forEach(function (value:any) {
+    //    (ar).push(value.mood)
+    //     console.log(value.mood);
+        
+        
+    //   }); console.log("arr : ",ar);
+    //   this.arr = ar;
+      
 
 
     });
     console.log("id ------------",id);
+    // console.log(this.arr);
+    
     
 
+  }
+  show(){
+    // console.log(this.arr);
+    // console.log((this.arr).filter(x => x === 'อับอาย').length);
+    // console.log((this.arr).length);
+    // console.log(this.arr[2]);
+    // console.log(typeof []);
+    
+    
+    
+    
   }
 
 }

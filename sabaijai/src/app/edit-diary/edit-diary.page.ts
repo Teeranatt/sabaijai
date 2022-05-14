@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class EditDiaryPage implements OnInit {
   mood: any;
-  diary: any;
+  diary: any = "";
   url: string = "http://localhost/appdata/editdiary.php";
   url2:string=  "http://localhost/appdata/load_data_edit.php";
 
@@ -237,7 +237,7 @@ export class EditDiaryPage implements OnInit {
   }
   alldiary(){
     this.router.navigate(['alldairy/'+ JSON.stringify(this.user_data)]);
-    console.log(this.user_data);
+    console.log("llll : ",this.user_data);
   }
 
   ngOnInit() {

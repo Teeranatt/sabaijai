@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class DiaryPage implements OnInit {
 
   mood: string = "";
-  diary: any;
+  diary: any = "";
   url: string = "http://localhost/appdata/diary.php";
 
   m0:boolean = true;

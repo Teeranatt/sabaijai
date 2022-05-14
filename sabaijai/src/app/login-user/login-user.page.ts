@@ -29,15 +29,33 @@ export class LoginUserPage implements OnInit {
 
   }
 
-  login() {
+ async login() {
     let url: string = "http://localhost/appdata/login.php"
     // let url = "http://localhost/db_ifightcovid19/insertdataloginpatient.php";
     let postdataset = this.insertdata.username;
     console.log(postdataset);
 
     // encodeURIComponent
+    if (this.insertdata.username == "" || this.insertdata.pass == ""){
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'แจ้งเตือน',
+        message: 'ข้อมูลไม่ถูกต้อง',
+        buttons: [
+          {
+            text: 'ตกลง',
+            id: 'confirm-button',
+            handler: () => {
+              console.log('Confirm Okay');
+            }
+          }
+        ]
+      });
 
-    if (this.insertdata.username != "" ||
+      await alert.present();
+    }
+
+   else if (this.insertdata.username != "" ||
       this.insertdata.pass != "") {
 
 
@@ -115,7 +133,8 @@ export class LoginUserPage implements OnInit {
 
           // }
 
-        } else {
+        }
+         else {
           const alert = await this.alertController.create({
             cssClass: 'my-custom-class',
             header: 'แจ้งเตือน',
@@ -188,6 +207,15 @@ export class LoginUserPage implements OnInit {
   }
 
   ngOnInit() {
+    let d = new Date()
+    console.log(d.getHours()+':'+d.getMinutes());
+    console.log(d.getMonth());
+    console.log(d.getTime());
+    console.log(d.constructor);
+    
+    
+    
+  
   }
 
 }
