@@ -43,6 +43,11 @@ const routes: Routes = [
     path: 'all-tested/:id',
     loadChildren: () => import('./all-tested/all-tested.module').then( m => m.AllTestedPageModule)
   },
+  {
+    path: 'etc/:id',
+    loadChildren: () => import('./etc/etc.module').then( m => m.EtcPageModule)
+  },
+
 
 
 

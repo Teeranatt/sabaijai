@@ -229,9 +229,14 @@ export class DiaryPage implements OnInit {
     this.router.navigate(['home/'+ this.user_id]);
   }
 
+  alldiary(){
+    this.router.navigate(['alldairy/'+this.user_id]);
+  }
   ngOnInit() {
     console.log((this.id).toString());
     console.log(this.m0);
+    console.log(this.user_id);
+    
     
 
   }

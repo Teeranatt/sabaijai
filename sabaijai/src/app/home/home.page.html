@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="oreng1" style="height: 50px;">
     <ion-title style="font-size: medium;margin-top: 8px;">
-      Homepage
+      หน้าหลัก
     </ion-title>
     <ion-text slot="end" style="margin-right: 20px;font-size: medium;margin-top: 8px;" (click)='logout()'>Log Out</ion-text>
   </ion-toolbar>
@@ -58,28 +58,11 @@
           <ion-card color="nood2">
             <img src="" />
             <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 14px;" (click)="diary()" >เขียนบันทึกกิจวัตรประจำวัน</ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
-
-        <ion-col size="6" style="margin-top: -15px;">
-          <ion-card color="nood2">
-            <img src="" />
-            <ion-card-header>
               <ion-card-title style="text-align: center;font-size: 14px;">ประวัติการประเมิน</ion-card-title>
             </ion-card-header>
           </ion-card>
         </ion-col>
 
-        <ion-col size="6" style="margin-top: -15px;">
-          <ion-card color="nood2">
-            <img src="" />
-            <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 14px;">เติมพลังใจกันเถอะ</ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
 
         <ion-col size="6" style="margin-top: -15px;">
           <ion-card color="nood2">
@@ -131,6 +114,15 @@
           ลงทะเบียน
         </ion-button>
         <h6>{{getkey()}}</h6> -->
+        <ion-col size="6" style="margin-top: -15px;">
+          <ion-card color="nood2" (click)="etc()">
+            <img src="" />
+            <ion-card-header>
+              <ion-card-title style="text-align: center;font-size: 20px;">อื่นๆ  ...
+              </ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
 
 
 

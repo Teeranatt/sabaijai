@@ -26,6 +26,7 @@ export class AlldairyPage implements OnInit {
   id: any;
   score: any;
   username: any;
+  date_regis:any;
 
   constructor(private router: Router, public http: HttpClient, private activatedRoute: ActivatedRoute, public alertController: AlertController) {
     this.user_id = (this.activatedRoute.snapshot.paramMap.get('id'));
@@ -33,6 +34,7 @@ export class AlldairyPage implements OnInit {
     this.dataJ = data;
     this.username = this.dataJ.name
     this.id = this.dataJ.id
+    this.date_regis = this.dataJ.date
 
 
   }
@@ -88,6 +90,9 @@ export class AlldairyPage implements OnInit {
 
   gotohome(){
     this.router.navigate(['home/'+ this.user_id]);
+  }
+  _diary(){
+    this.router.navigate(['/diary/'+JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);
   }
 
   ngOnInit() {

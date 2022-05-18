@@ -1,11 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>alldairy</ion-title>
+<ion-header >
+  <ion-toolbar color="pink1">
+    <ion-title>My Diary</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <ion-list *ngIf="diary">
     <ion-card *ngFor="let item of diary" style="padding: 20px;">
       <!-- <ion-avatar slot="start">
@@ -50,7 +49,10 @@
     </ion-button>
 
   </div>
-  <!-- <ion-button (click)="show()" expand="block" fill="clear" shape="round">
-    Click me
-  </ion-button> -->
+   <ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="_diary()">
+    <ion-fab-button color="danger">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ 
 </ion-content>
