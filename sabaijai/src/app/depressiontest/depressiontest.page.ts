@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -21,22 +21,22 @@ export class DepressiontestPage implements OnInit {
   value_8: any;
   value_9: any;
   value_0: string = "ยังไม่มีคะแนน";
-  user_id:any;
-  dataJ:any;
-  id:any;
-  score:any;
+  user_id: any;
+  dataJ: any;
+  id: any;
+  score: any;
   username: any;
 
-  url:string = "http://localhost/appdata/depressiontest.php";
+  url: string = "http://localhost/appdata/depressiontest.php";
 
   // varSum:number = parseInt(this.value_1) + parseInt(this.value_2);
-  constructor(private router: Router, public http: HttpClient,private activatedRoute:ActivatedRoute, public alertController: AlertController) {
+  constructor(private router: Router, public http: HttpClient, private activatedRoute: ActivatedRoute, public alertController: AlertController) {
     this.user_id = (this.activatedRoute.snapshot.paramMap.get('id'));
     let data = JSON.parse(this.user_id);
     this.dataJ = data;
     this.username = this.dataJ.name
     this.id = this.dataJ.id
-    
+
 
   }
   // checkVar() {
@@ -85,15 +85,16 @@ export class DepressiontestPage implements OnInit {
     var va9 = parseInt(this.value_9);
 
     var varSum = va1 + va2 + va3 + va4 + va5 + va6 + va7 + va8 + va9;
-    console.log("คะแนน .. ",varSum);
+    console.log("คะแนน .. ", varSum);
     this.score = varSum;
 
-    if (varSum >= 0 && varSum <= 4) {
+    if (varSum >= 0 && varSum < 7) {
+      this.save();
       // this.router.navigate(['/stress-level1']);
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
         header: 'ผลการประเมิน : ' + varSum,
-        message: 'ความเครียดของคุณอยู่ในระดับต่ำ... '
+        message: 'มีอาการของโรคซึมเศร้าระดับน้อยมาก... '
         ,
 
         buttons: [
@@ -102,7 +103,7 @@ export class DepressiontestPage implements OnInit {
             cssClass: 'primary',
             id: 'cancel-button',
             handler: () => {
-              console.log('Confirm Cancel: blah');
+              this.goto_depress_relax();
             }
           },
           {
@@ -117,12 +118,13 @@ export class DepressiontestPage implements OnInit {
 
       await alert.present();
     }
-    else if (varSum >= 5 && varSum <= 7) {
+    else if (varSum >= 7 && varSum < 13) {
+      this.save();
       // this.router.navigate(['/stress-level2']);
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
         header: 'ผลการประเมิน : ' + varSum,
-        message: 'ความเครียดระดับของคุณอยู่ในระดับปานกลาง... '
+        message: 'มีอาการของโรคซึมเศร้า ระดับน้อย... '
         ,
 
         buttons: [
@@ -131,7 +133,7 @@ export class DepressiontestPage implements OnInit {
             cssClass: 'primary',
             id: 'cancel-button',
             handler: () => {
-              console.log('Confirm Cancel: blah');
+              this.goto_depress_relax();
             }
           },
           {
@@ -147,12 +149,13 @@ export class DepressiontestPage implements OnInit {
       await alert.present();
 
     }
-    else if (varSum >= 8 && varSum <= 9) {
+    else if (varSum >= 13 && varSum <= 18) {
+      this.save();
       // this.router.navigate(['/stress-level3']);
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
         header: 'ผลการประเมิน : ' + varSum,
-        message: 'ความเครียดของคุณอยู่ในระดับสูง...'
+        message: 'มีอาการของโรคซึมเศร้า ระดับปานกลาง...'
         ,
 
         buttons: [
@@ -161,7 +164,7 @@ export class DepressiontestPage implements OnInit {
             cssClass: 'primary',
             id: 'cancel-button',
             handler: () => {
-              console.log('Confirm Cancel: blah');
+              this.goto_depress_relax();
             }
           },
           {
@@ -177,12 +180,13 @@ export class DepressiontestPage implements OnInit {
       await alert.present();
 
     }
-    else if (varSum >= 10 && varSum <= 15) {
+    else if (varSum > 18) {
+      this.save();
       // this.router.navigate(['/stress-level4']);
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
         header: 'ผลการประเมิน : ' + varSum,
-        message: 'ความเครียดของคุณอยู่ในระดับรุนแรง...'
+        message: 'มีอาการของโรคซึมเศร้า ระดับรุนแรง...'
         ,
 
         buttons: [
@@ -191,7 +195,7 @@ export class DepressiontestPage implements OnInit {
             cssClass: 'primary',
             id: 'cancel-button',
             handler: () => {
-              this.router.navigate(['/home']);
+              this.goto_depress_relax();
             }
           },
           {
@@ -216,7 +220,7 @@ export class DepressiontestPage implements OnInit {
             text: 'ตกลง',
             id: 'confirm-button',
             handler: () => {
-              this.router.navigate(['stress-test/'+ this.user_id]);
+
             }
           }
         ]
@@ -224,52 +228,44 @@ export class DepressiontestPage implements OnInit {
 
       await alert.present();
     }
-    let sum = (this.score).toString();
-    let id = (this.id).toString();
-    let dataPost = new FormData();
-    dataPost.append('id',id);
-    dataPost.append('score',sum);
-    console.log("1",dataPost);
-    console.log("id : "+id);
-    console.log(sum);
-    
-    
-
-     
-    // var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'True' });
-    // let data = this.http.put(url, dataPost, { responseType: 'text'}).toPromise();
-    let data:Observable<any> = this.http.post(this.url,dataPost);
-    console.log("2",data);
-    
-    data.subscribe(d=>{console.log("status : "+d)
-   
-    });
-    // console.log(JSON.stringify(dataPost));
-   console.log(this.score);
-   console.log(sum);
-   
-   
-    // if (data) {
-    //   this.router.navigate(['/home']) 
-    // }
-    
-    
-
   }
-  
-  gotohome(){
-    this.router.navigate(['home/'+ this.user_id]);
+  save(){
+      let sum = (this.score).toString();
+      let id = (this.id).toString();
+      let dataPost = new FormData();
+      dataPost.append('id', id);
+      dataPost.append('score', sum);
+      console.log("1", dataPost);
+      console.log("id : " + id);
+      console.log(sum);
+
+      let data: Observable<any> = this.http.post(this.url, dataPost);
+      console.log("2", data);
+
+      data.subscribe(d => {
+        console.log("status : " + d)
+
+      });
+      console.log(this.score);
+      console.log(sum);
+  }
+
+  gotohome() {
+    this.router.navigate(['home/' + this.user_id]);
+  }
+  goto_depress_relax() {
+    this.router.navigate(['relieve-depression/' + this.user_id]);
   }
 
   ngOnInit() {
     console.log(this.user_id);
     console.log(this.dataJ);
-    
-    
+
+
   }
 
 }
- 
+
 
 
 

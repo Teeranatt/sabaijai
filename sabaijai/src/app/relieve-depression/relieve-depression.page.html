@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>คำแนะนำวิธีลดภาวะซึมเศร้าเบื้องต้น</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="false" fullscreen class="ion-padding" scroll-y="false">
+    <ion-slide class="ion-padding">
+      <img src="/assets/brightness.png" alt="">
+      <h1>วิธีลดภาวะซึมเศร้า</h1>
+      <h1 style="margin-top:-10px">เบื้องต้น</h1>
+      <ion-button fill="clear" color="warning">เลื่อนดูกันเลย!! <ion-icon slot="end" name="arrow-forward"
+          color="warning"></ion-icon>
+      </ion-button>
+      <div style="text-align: center;" (click)="gotoetc()"><ion-button fill="clear" color="success"> <ion-icon slot="end" name="sync-outline"></ion-icon> ย้อนกลับ
+      </ion-button></div>
+    </ion-slide> 
+
+    <ion-slide class="ion-padding">
+      <img src="/assets/runner.png" alt="">
+      <h1>สำหรับอาการซึมเศร้าระดับน้อย</h1>
+      <p style="margin-top:-10px">
+         การออกกำลังกาย 30 - 45 นาที (เป็นแอโรบิกยิ่งดี) อย่างสม่ำเสมออย่างน้อย 3 ครั้งต่อสัปดาห์ จะสามารถช่วยลดอาการซึมเศร้าได้ดีจากการวิจัยพบว่า การออกกำลังกายได้ผลพอๆกับการใช้ยาถ้าออกกำลังกายอย่างสม่ำเสมอเป็นเวลานานพอ</p>
+      <ion-button fill="clear" color="warning">เลื่อนดูกันเลย!! <ion-icon slot="end" name="arrow-forward"
+          color="warning"></ion-icon>
+      </ion-button>
+    </ion-slide>
+
+    <ion-slide class="ion-padding">
+      <img src="/assets/medicine.png" alt="">
+      <h1>การรักษาทางการแพทย์</h1>
+      <p style="margin-top:-10px">
+         ประกอบด้วยการให้ยาต้านเศร้า การรักษาด้วยไฟฟ้า (ในรายที่มีอาการแรง) การให้ยาต้านโรคจิต (กรณีประสาทหลอน หลงผิดร่วมด้วย) </p>
+      <ion-button fill="clear" color="warning">เลื่อนดูกันเลย!! <ion-icon slot="end" name="arrow-forward"
+          color="warning"></ion-icon>
+      </ion-button>
+    </ion-slide>
+
+    <ion-slide class="ion-padding">
+      <img src="/assets/advice.png" alt="">
+      <h1>การรักษาทางจิตใจ</h1>
+      <p style="margin-top:-10px">
+         ได้แก่ จิตบำบัด การให้การปรึกษาแก้ไขปัญหาสังคมจิตใจ และการเรียนรู้ทักษะจัดการความเครียด</p>
+      <ion-button fill="clear" color="warning">เลื่อนดูกันเลย!! <ion-icon slot="end" name="arrow-forward"
+          color="warning"></ion-icon>
+      </ion-button>
+    </ion-slide> 
+    
+    <ion-slide class="ion-padding">
+      <img src="/assets/writing.png" alt="">
+      <h1>การเขียนไดอารี่</h1>
+      <p style="margin-top:-10px">
+        การจดบันทึกเรื่องราวต่างๆ ที่เราเจอในแต่ละวัน หรือการระบายความรู้สึกผ่านทางตัวอักษรนั้นมีประโยชน์มากทีเดียว แม้ว่าคุณจะต้องสละเวลาส่วนตัวสักเล็กน้อย แต่สิ่งที่คุณจะได้รับนั้นก็นับว่าคุ้มค่า</p>
+      <ion-button fill="clear" color="success" (click)="goto_diary()"> กดเพื่อเขียนไดอารี่ <ion-icon slot="end" name="book"></ion-icon>
+      </ion-button>
+    </ion-slide>
+
+  </ion-slides>
+
+
+</ion-content>

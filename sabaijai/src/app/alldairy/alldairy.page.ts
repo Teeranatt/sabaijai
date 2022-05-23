@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./alldairy.page.scss'],
 })
 export class AlldairyPage implements OnInit {
-  // arr:any[];
+  
 
 
   mood: any;
@@ -19,7 +19,7 @@ export class AlldairyPage implements OnInit {
   date: any;
   url_2: string = "http://localhost/appdata/delete_diary.php";
 
-  nothide: boolean = false;
+  
 
   user_id: any;
   dataJ: any;
@@ -135,16 +135,6 @@ export class AlldairyPage implements OnInit {
     
 
   }
-  show(){
-    // console.log(this.arr);
-    // console.log((this.arr).filter(x => x === 'อับอาย').length);
-    // console.log((this.arr).length);
-    // console.log(this.arr[2]);
-    // console.log(typeof []);
-    
-    
-    
-    
-  }
+  
 
 }

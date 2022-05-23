@@ -6,16 +6,8 @@
 
 <ion-content>
   <ion-list *ngIf="diary">
-    <ion-card *ngFor="let item of diary" style="padding: 20px;">
-      <!-- <ion-avatar slot="start">
-        <img src="./avatar-finn.png" />
-      </ion-avatar> -->
+    <ion-card *ngFor="let item of diary" style="padding: 20px;" color="pink2">
       <ion-label>
-        <!-- <div *ngIf="nothide" [(ngModel)]="diarylist" [value]="item.di_id" >
-          <h1>
-            
-          </h1>
-        </div> -->
         <h2>{{item.mood}}</h2>
         <h6>บันทึกเมื่อ : {{item.date}}</h6>
 
@@ -29,11 +21,10 @@
         <ion-icon name="trash" id="trash" (click)=" del_diary(item.di_id,item.data_text)" color="danger"></ion-icon>
       </div>
 
-
-
     </ion-card>
   </ion-list>
-  <div *ngIf="!diary" style="margin-top: 100px;">
+
+  <div *ngIf="!diary" style="margin-top: 200px;">
     <ion-list>
       <div style="padding: 50px;text-align: center;" class="not-diary" >
        <p>เอ๊ะ!</p>  
@@ -54,5 +45,5 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
- 
+
 </ion-content>

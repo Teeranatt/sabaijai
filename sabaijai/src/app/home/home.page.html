@@ -29,23 +29,19 @@
 
         <ion-col size="6">
           <ion-card style="padding: 10px;margin-top: 10px;text-align: center;"  (click)="dostresstest()" color="nood2">
-            <!-- <img src="/assets/stress_img.png"
-              style="padding: 0px;" /> -->
+            <img src="/assets/checklistt.png"
+              style="padding: 30px;" />
             <ion-card-header>
               <ion-card-title style="text-align: center;font-size: 13px; margin-bottom: -15px;margin-top: -25px;">
                 แบบประเมินความเครียด</ion-card-title>
             </ion-card-header> 
-            <!-- <ion-card-content>
-            ความเครียด(Stress) คือ ภาวะของอารมณ์ ความรู้สึก ที่ถูกบีบคั้น กดดัน ทำให้มีอาการแสดงที่ต่างกัน เช่น
-            วิตกกังวล นอนไม่หลับ ปวดหัว ซึมเศร้า บางคนอาจมีอาการประสาทหลอนได้
-          </ion-card-content> -->
           </ion-card>
         </ion-col>
 
         <ion-col size="6">
           <ion-card style="padding: 10px;margin-top: 10px;text-align: center;" (click)="do_depressiontest()" color="nood2">
-            <!-- <img src="https://campaigns.aia.co.th/vitality/assets/media/onlineassessment-icon-200px.png"
-              style="padding: 30px;" /> -->
+            <img src="/assets/checklist.png"
+              style="padding: 30px;" />
             <ion-card-header>
               <ion-card-title style="text-align: center;font-size: 13px;margin-bottom: -15px;margin-top: -25px;">
                 แบบประเมินโรคซึมเศร้า</ion-card-title>
@@ -55,70 +51,47 @@
         </ion-col>
 
         <ion-col size="6" style="margin-top: -15px;">
-          <ion-card color="nood2">
-            <img src="" />
+          <ion-card color="nood2" style="padding: 10px;margin-top: 10px;text-align: center;">
+            <img src="/assets/form.png"
+              style="padding: 30px;" />
             <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 14px;">ประวัติการประเมิน</ion-card-title>
+              <ion-card-title style="text-align: center;font-size: 14px;margin-bottom: -15px;margin-top: -25px;">ประวัติการประเมิน</ion-card-title>
             </ion-card-header>
           </ion-card>
         </ion-col>
 
 
         <ion-col size="6" style="margin-top: -15px;">
-          <ion-card color="nood2">
-            <img src="" />
+          <ion-card (click)="alldiary()" color="nood2" style="padding: 10px;margin-top: 10px;text-align: center;">
+            <img src="/assets/diary.png"
+              style="padding: 30px;" />
             <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 14px;">สายด่วนสุขภาพจิต</ion-card-title>
+              <ion-card-title style="text-align: center;font-size: 14px;margin-bottom: -15px;margin-top: -25px;">My Diary</ion-card-title>
             </ion-card-header>
           </ion-card>
         </ion-col>
 
         <ion-col size="6" style="margin-top: -15px;">
-          <ion-card (click)="alldiary()" color="nood2">
-            <img src="" />
+          <ion-card color="nood2" (click)="all_Tested()" style="padding: 10px;margin-top: 10px;text-align: center;">
+            <img src="/assets/growth.png"
+              style="padding: 30px;" />
             <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 14px;">My Diary</ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
-
-        <ion-col size="6" style="margin-top: -15px;">
-          <ion-card color="nood2" (click)="all_Tested()">
-            <img src="" />
-            <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 10px;">ข้อมูลวิเคราะห์เครียดและซึมเศร้า
+              <ion-card-title style="text-align: center;font-size: 14px;margin-bottom: -15px;margin-top: -25px;">ข้อมูลสรุปความเครียด ซึมเศร้า และอารมณ์
               </ion-card-title>
             </ion-card-header>
           </ion-card>
         </ion-col>
 
-        <ion-col size="6" style="margin-top: -15px;">
-          <ion-card color="nood2">
-            <img src="" />
-            <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 14px;">แนะนำวิธีคลายเครียด</ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
-
-        <ion-col size="6" style="margin-top: -15px;">
-          <ion-card color="nood2">
-            <img src="" />
-            <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 10px;">แนะนำวิธีลดภาวะซึมเศร้าเบื้องต้น
-              </ion-card-title>
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
         <!-- <ion-button color="primary" expand="block" class="ion-margin" style="margin-top: -10px;" (click)="regis()">
           ลงทะเบียน
         </ion-button>
         <h6>{{getkey()}}</h6> -->
         <ion-col size="6" style="margin-top: -15px;">
-          <ion-card color="nood2" (click)="etc()">
-            <img src="" />
+          <ion-card color="nood2" (click)="etc()" style="padding: 10px;margin-top: 10px;text-align: center;padding-bottom: 21px;">
+           <img src="/assets/more.png"
+              style="padding: 30px;" />
             <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 20px;">อื่นๆ  ...
+              <ion-card-title style="text-align: center;font-size: 14px;margin-bottom: -15px;margin-top: -15px;">อื่นๆ
               </ion-card-title>
             </ion-card-header>
           </ion-card>

@@ -47,6 +47,23 @@ const routes: Routes = [
     path: 'etc/:id',
     loadChildren: () => import('./etc/etc.module').then( m => m.EtcPageModule)
   },
+  {
+    path: 'relieve/:id',
+    loadChildren: () => import('./relieve/relieve.module').then( m => m.RelievePageModule)
+  },
+  {
+    path: 'relieve-depression/:id',
+    loadChildren: () => import('./relieve-depression/relieve-depression.module').then( m => m.RelieveDepressionPageModule)
+  },
+  {
+    path: 'contact/:id',
+    loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
+  },  {
+    path: 'test-history',
+    loadChildren: () => import('./test-history/test-history.module').then( m => m.TestHistoryPageModule)
+  },
+
+
 
 
 

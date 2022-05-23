@@ -46,15 +46,6 @@ export class StressTestPage implements OnInit {
     var va4 = parseInt(this.value_4);
     var va5 = parseInt(this.value_5);
 
-    ;
-    // if (this.value_1 === 0) {
-    //   console.log("yes")
-    // }
-    // else { console.log("no"); }
-
-    // console.log(typeof(this.value_1));
-    // console.log(typeof(va1));
-    // // console.log('ค่าประเมิน : ' , this.varSum);
     var varSum = va1 + va2 + va3 + va4 + va5
     if (this.value_1 == null || this.value_2 == null || this.value_3 == null || this.value_4 == null || this.value_5 == null) {
       return this.value_0
@@ -78,6 +69,7 @@ export class StressTestPage implements OnInit {
     this.score = varSum;
 
     if (varSum >= 0 && varSum <= 4) {
+      this.save();
       // this.router.navigate(['/stress-level1']);
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
@@ -91,7 +83,7 @@ export class StressTestPage implements OnInit {
             cssClass: 'primary',
             id: 'cancel-button',
             handler: () => {
-              console.log('Confirm Cancel: blah');
+              this.goto_stress_relax();
             }
           },
           {
@@ -107,6 +99,7 @@ export class StressTestPage implements OnInit {
       await alert.present();
     }
     else if (varSum >= 5 && varSum <= 7) {
+      this.save();
       // this.router.navigate(['/stress-level2']);
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
@@ -120,7 +113,7 @@ export class StressTestPage implements OnInit {
             cssClass: 'primary',
             id: 'cancel-button',
             handler: () => {
-              console.log('Confirm Cancel: blah');
+              this.goto_stress_relax();
             }
           },
           {
@@ -137,6 +130,7 @@ export class StressTestPage implements OnInit {
 
     }
     else if (varSum >= 8 && varSum <= 9) {
+      this.save();
       // this.router.navigate(['/stress-level3']);
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
@@ -150,7 +144,7 @@ export class StressTestPage implements OnInit {
             cssClass: 'primary',
             id: 'cancel-button',
             handler: () => {
-              console.log('Confirm Cancel: blah');
+              this.goto_stress_relax();
             }
           },
           {
@@ -167,6 +161,7 @@ export class StressTestPage implements OnInit {
 
     }
     else if (varSum >= 10 && varSum <= 15) {
+      this.save();
       // this.router.navigate(['/stress-level4']);
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
@@ -180,7 +175,7 @@ export class StressTestPage implements OnInit {
             cssClass: 'primary',
             id: 'cancel-button',
             handler: () => {
-              this.router.navigate(['/home']);
+              this.goto_stress_relax();
             }
           },
           {
@@ -205,7 +200,6 @@ export class StressTestPage implements OnInit {
             text: 'ตกลง',
             id: 'confirm-button',
             handler: () => {
-              this.router.navigate(['stress-test/'+ this.user_id]);;
             }
           }
         ]
@@ -213,7 +207,11 @@ export class StressTestPage implements OnInit {
 
       await alert.present();
     }
-    let sum = (this.score).toString();
+   
+  }
+
+save(){
+  let sum = (this.score).toString();
     let id = (this.id).toString();
     let dataPost = new FormData();
     dataPost.append('id',id);
@@ -221,33 +219,27 @@ export class StressTestPage implements OnInit {
     console.log("1",dataPost);
     console.log("id : "+id);
     console.log(sum);
-    
-    
-
-     
-    // var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'True' });
-    // let data = this.http.put(url, dataPost, { responseType: 'text'}).toPromise();
+ 
     let data:Observable<any> = this.http.post(this.url,dataPost);
     console.log("2",data);
     
     data.subscribe(d=>{console.log("status : "+d)
    
     });
-    // console.log(JSON.stringify(dataPost));
    console.log(this.score);
    console.log(sum);
-   
-   
-    // if (data) {
-    //   this.router.navigate(['/home']) 
-    // }
-    
-    
 
-  }
+}
 
 gotohome(){
   this.router.navigate(['home/'+ this.user_id]);
+}
+goto_stress_relax(){
+  this.router.navigate(['relieve/'+ this.user_id]);
+}
+log(){
+console.log("5464565665");
+
 }
   ngOnInit() {
     

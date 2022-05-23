@@ -156,11 +156,11 @@
     </ion-radio-group>
   </div>
 
-  <div style="text-align: center;font-size: 25px;margin-top: 5px;">คะแนนการประเมิน : {{valueC()}}</div>
+  <!-- <div style="text-align: center;font-size: 25px;margin-top: 5px;">คะแนนการประเมิน : {{valueC()}}</div> -->
 
   <ion-button color="success" expand="block" (click)="showResult()" class="ion-margin">ประเมินผล
   </ion-button>
-  <ion-button color="primary" expand="block" class="ion-margin" style="margin-top: -10px;" [routerLink]="['/home']">
+  <ion-button color="primary" expand="block" class="ion-margin" style="margin-top: -10px;" (click)="gotohome()">
     กลับสู่หน้าหลัก
   </ion-button>
 
