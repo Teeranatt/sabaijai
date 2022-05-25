@@ -13,15 +13,15 @@ export class AllTestedPage implements OnInit {
 
   call: number;
 
-  stress_1: any = 0.2;
-  stress_2: any = 0.45
-  stress_3: any = 0.9;
-  stress_4: any = 0.6;
+  stress_1: any = 0;
+  stress_2: any = 0;
+  stress_3: any = 0;
+  stress_4: any = 0;
 
-  depress_1: any = 0.1;
-  depress_2: any = 0.2;
-  depress_3: any = 0.15;
-  depress_4: any = 0.5;
+  depress_1: any = 0;
+  depress_2: any = 0;
+  depress_3: any = 0;
+  depress_4: any = 0;
   
   l_mood : any;
   mood_1: any = 0;
@@ -46,11 +46,23 @@ export class AllTestedPage implements OnInit {
   shame: any = [];
   guilt: any = [];
 
+  l_stress:any;
+  stress1: any = [];
+  stress2: any = [];
+  stress3: any = [];
+  stress4: any = [];
+
+  l_depress:any;
+  depress1: any = [];
+  depress2: any = [];
+  depress3: any = [];
+  depress4: any = [];
+
 
   mood_: any = [];
   moods:any;
-  stress_: any;
-  depression_: any;
+  stress_: any = [];
+  depression_: any = [];
 
   user_id: any;
   dataJ: any;
@@ -59,8 +71,8 @@ export class AllTestedPage implements OnInit {
   username: any;
 
   url1: string = "http://localhost/appdata/loaddiary.php";
-  url2: string = "";
-  url3: string = "";
+  url2: string = "http://localhost/appdata/loadstresstest.php";
+  url3: string = "http://localhost/appdata/loaddepressiontest.php";
 
   constructor(private router: Router, public http: HttpClient, private activatedRoute: ActivatedRoute, public alertController: AlertController) {
     this.user_id = (this.activatedRoute.snapshot.paramMap.get('id'));
@@ -284,19 +296,10 @@ export class AllTestedPage implements OnInit {
       console.log("dataaaa : ");
 
       let obj = JSON.parse(data.toString());
-      // console.log(obj[4].data_text);
-      // console.log(data.toString());
       this.mood_ = obj;
       console.log("obj : ", obj.mood);
       console.log("5555555", this.user_id);
 
-      //   let ar = []
-      //   console.log(this.mood_);
-      //   (this.mood_).forEach(function (value:any) {
-      //        (ar).push(value.mood)
-      //         console.log(value.mood);
-      // });console.log("arr : ",ar);
-      // this.mood_ = ar;
       this.show_m()
       this.cal_mood1()
       this.cal_mood2()
@@ -312,13 +315,205 @@ export class AllTestedPage implements OnInit {
 
 
     });
-    
+  
   }
+  //------------------------------------------------------stress--------------------------------------------------//
+  loadstress(){
+    let id = (this.id).toString();
+    let data: Observable<any> = this.http.get(
+      this.url2 + "/?id=" + id
+    );
+
+    data.subscribe(d => {
+      let data = JSON.stringify(d)
+      // console.log("status : " + data )
+      let obj = JSON.parse(data.toString());
+      this.stress_ = obj;
+      // console.log("obj stress : ", obj.score);
+
+      this.l_stress = (this.stress_).length;
+
+      console.log("len stress",this.l_stress);
+      this.stress_add();
+      this.stress_cal();
+    });
+    
+
+  }
+  stress_add(){
+    let ar = [];
+    let ar1 = [];
+    let ar2 = [];
+    let ar3 = [];
+    let ar4 = [];
+    (this.stress_).forEach(function (value: any) {
+      // console.log(value.mood);
+      (ar).push(value.score)
+    })
+    console.log(ar,"------------------------- stress");
+    (ar1) = ((ar).filter(x => x <=4));
+    this.stress1 = ar1;
+    (ar2) = ((ar).filter(x => x > 4 && x <8));
+    this.stress2 = ar2;
+    (ar3) = ((ar).filter(x => x >=8 && x <10));
+    this.stress3 = ar3;
+    (ar4) = ((ar).filter(x => x >9 ));
+    this.stress4 = ar4;
+
+
+    console.log("ต่ำ : ", ar1);
+    console.log("ปลางกลาง : ", ar2);
+    console.log("สูง : ", ar3);
+    console.log("รุนแรง : ", ar4);
+
+  }
+  cal_stress1() {
+    // อารมณ์ที่ต้องการหา / อารมณ์ทั้งหมด 
+    let x = this.stress1.length;
+    let y = this.l_stress;
+    let present = x / y;
+    let pp = Number(present.toFixed(4))
+    this.stress_1 = (pp); 
+    console.log("cal1 : ",y,'--',x,'---',pp," ----- ",this.l_stress);
+  }
+  cal_stress2() {
+    // อารมณ์ที่ต้องการหา / อารมณ์ทั้งหมด 
+    let x = this.stress2.length;
+    let y = this.l_stress;
+    let present = x / y;
+    let pp = Number(present.toFixed(4))
+    this.stress_2 = (pp); 
+    console.log("cal2 : ",y,'--',x,'---',pp," ----- ",this.l_stress);
+  }
+  cal_stress3() {
+    // อารมณ์ที่ต้องการหา / อารมณ์ทั้งหมด 
+    let x = this.stress3.length;
+    let y = this.l_stress;
+    let present = x / y;
+    let pp = Number(present.toFixed(4))
+    this.stress_3 = (pp); 
+    console.log("cal3 : ",y,'--',x,'---',pp," ----- ",this.l_stress);
+  }
+  cal_stress4() {
+    // อารมณ์ที่ต้องการหา / อารมณ์ทั้งหมด 
+    let x = this.stress4.length;
+    let y = this.l_stress;
+    let present = x / y;
+    let pp = Number(present.toFixed(4))
+    this.stress_4 = (pp); 
+    console.log("cal4 : ",y,'--',x,'---',pp," ----- ",this.l_stress);
+  }
+  stress_cal(){
+    this.cal_stress1()
+    this.cal_stress2()
+    this.cal_stress3()
+    this.cal_stress4()
+  }
+//------------------------------------------------------stress--------------------------------------------------//
+  //----------------------------------------------------------------------------------------------//
+  //----------------------------------------depression--------------------------------------------//
+  loaddepress(){
+    let id = (this.id).toString();
+    let data: Observable<any> = this.http.get(
+      this.url3 + "/?id=" + id
+    );
+
+    data.subscribe(d => {
+      let data = JSON.stringify(d)
+      // console.log("status : " + data )
+      let obj = JSON.parse(data.toString());
+      this.depression_ = obj;
+      console.log("obj depress : ", obj.score);
+
+      this.l_depress = (this.depression_).length;
+
+      console.log("len stress",this.l_depress);
+      this.depress_add();
+      this.depress_cal();
+    });
+    
+
+  }
+  depress_add(){
+    let ar = [];
+    let ar1 = [];
+    let ar2 = [];
+    let ar3 = [];
+    let ar4 = [];
+    (this.depression_).forEach(function (value: any) {
+      // console.log(value.mood);
+      (ar).push(value.score)
+    })
+    console.log(ar,"------------------------- depress");
+    (ar1) = ((ar).filter(x => x > 0 && x < 7));
+    this.depress1 = ar1;
+    (ar2) = ((ar).filter(x => x > 6 && x < 13));
+    this.depress2 = ar2;
+    (ar3) = ((ar).filter(x => x >12 && x < 19));
+    this.depress3 = ar3;
+    (ar4) = ((ar).filter(x => x > 18));
+    this.depress4 = ar4;
+
+
+    console.log("น้อยมาก : ", ar1);
+    console.log("น้อย : ", ar2);
+    console.log("ปานกลาง : ", ar3);
+    console.log("รุนแรง : ", ar4);
+
+  }
+  cal_depress1() {
+    // อารมณ์ที่ต้องการหา / อารมณ์ทั้งหมด 
+    let x = this.depress1.length;
+    let y = this.l_depress;
+    let present = x / y;
+    let pp = Number(present.toFixed(4))
+    this.depress_1 = (pp); 
+    console.log("cal1 : ",x,this.depress_1);
+  }
+  cal_depress2() {
+    // อารมณ์ที่ต้องการหา / อารมณ์ทั้งหมด 
+    let x = this.depress2.length;
+    let y = this.l_depress;
+    let present = x / y;
+    let pp = Number(present.toFixed(4))
+    this.depress_2 = (pp); 
+    console.log("cal2 : ",x,this.depress_2);
+  }
+  cal_depress3() {
+    // อารมณ์ที่ต้องการหา / อารมณ์ทั้งหมด 
+    let x = this.depress3.length;
+    let y = this.l_depress;
+    let present = x / y;
+    let pp = Number(present.toFixed(4))
+    this.depress_3 = (pp); 
+    console.log("cal3 : ",x,this.depress_3);
+  }
+  cal_depress4() {
+    // อารมณ์ที่ต้องการหา / อารมณ์ทั้งหมด 
+    let x = this.depress4.length;
+    let y = this.l_depress;
+    let present = x / y;
+    let pp = Number(present.toFixed(4))
+    this.depress_4 = (pp); 
+    console.log("cal4 : ",x," - ",this.l_depress);
+  }
+  depress_cal(){
+    this.cal_depress1()
+    this.cal_depress2()
+    this.cal_depress3()
+    this.cal_depress4()
+  }
+ //-------------------------------------------------------depression----------------------------------------------//
 
 
   ngOnInit() {
-  this.load_mood()
+  this.load_mood();
+  this.loadstress();
+  this.loaddepress();
 
+  }
+  gotohome(){
+    this.router.navigate(['home/'+ this.user_id]);
   }
 
 }

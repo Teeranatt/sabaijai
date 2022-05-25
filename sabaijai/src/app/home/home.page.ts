@@ -58,6 +58,11 @@ export class HomePage {
   this.router.navigate(['/all-tested/'+JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);
 
  }
+ test_history(){ 
+  this.router.navigate(['test-history/'+ JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);
+}
+
+
   etc(){ 
     this.router.navigate(['etc/'+ JSON.stringify({'name':this.username,'id' : this.id,'date':this.date_regis})]);
   }

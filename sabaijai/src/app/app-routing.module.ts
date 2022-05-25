@@ -58,8 +58,9 @@ const routes: Routes = [
   {
     path: 'contact/:id',
     loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
-  },  {
-    path: 'test-history',
+  },
+  {
+    path: 'test-history/:id',
     loadChildren: () => import('./test-history/test-history.module').then( m => m.TestHistoryPageModule)
   },
 
