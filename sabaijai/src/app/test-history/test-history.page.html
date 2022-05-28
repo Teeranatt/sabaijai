@@ -1,9 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>test-history</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title>ประวัติการประเมิน</ion-title>
+
+    <ion-icon name="arrow-back" slot="end" style="margin-right: 5px;size:large ;margin-top: 0px;" (click)='logout()'>
+    </ion-icon>
+    <ion-text slot="end" style="margin-right: 20px;font-size: small;margin-top: 0px;" (click)='gotohome()'>ย้อนกลับ
+    </ion-text>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-segment color="secondary">
+
+    <ion-segment-button (click)="check1()">
+      <ion-label color="secondary">ความเครียด</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button (click)="check2()">
+      <ion-label color="warning">ซึมเศร้า</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+  <div *ngIf="c1">
+
+    <ion-list>
+      <ion-item *ngFor="let item of stress">
+        <ion-label style="margin-left: 10px;">
+          <h2>คะแนนการประเมิน : {{item.score}}</h2>
+          <p>ประเมินเมื่อ : {{item.date}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="c2">
+
+    <ion-list>
+      <ion-item *ngFor="let item of depression">
+        <ion-label style="margin-left: 10px;">
+          <h2>คะแนนการประเมิน : {{item.score}}</h2>
+          <p>ประเมินเมื่อ : {{item.date}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 
 </ion-content>
